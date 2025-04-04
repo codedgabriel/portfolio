@@ -11,10 +11,8 @@ const byte DNS_PORT = 53;
 DNSServer dnsServer;
 WebServer server(80);
 
-// Página HTML estilizada
+// Página HTML estilizada (mantenha o mesmo HTML que você já tem)
 const char index_html[] PROGMEM = R"rawliteral(
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -472,24 +470,56 @@ void setup() {
   // Redireciona qualquer domínio para o ESP32
   dnsServer.start(DNS_PORT, "*", WiFi.softAPIP());
 
-  // Rota principal (toda requisição vai cair aqui)
-  server.onNotFound([]() {
+  // Rota principal
+  server.on("/", []() {
     server.send_P(200, "text/html", index_html);
   });
 
-  // Redirecionamentos para dispositivos que tentam detectar captive portals
+  // Respostas para o captive portal detection
   server.on("/generate_204", []() {
-    server.sendHeader("Location", "/", true);
+    server.sendHeader("Location", "http://" + WiFi.softAPIP().toString(), true);
     server.send(302, "text/plain", "");
   });
 
   server.on("/fwlink", []() {
-    server.sendHeader("Location", "/", true);
+    server.sendHeader("Location", "http://" + WiFi.softAPIP().toString(), true);
     server.send(302, "text/plain", "");
   });
 
   server.on("/hotspot-detect.html", []() {
-    server.sendHeader("Location", "/", true);
+    server.sendHeader("Location", "http://" + WiFi.softAPIP().toString(), true);
+    server.send(302, "text/plain", "");
+  });
+
+  // Resposta para solicitação de conectividade do Android
+  server.on("/connecttest.txt", []() {
+    server.send(200, "text/plain", "Microsoft Connect Test");
+  });
+
+  // Resposta para solicitação de conectividade do Windows
+  server.on("/ncsi.txt", []() {
+    server.send(200, "text/plain", "Microsoft NCSI");
+  });
+
+  // Resposta para solicitação de conectividade do iOS
+  server.on("/library/test/success.html", []() {
+    server.send(200, "text/html", "<!DOCTYPE html><html><head><title>Success</title></head><body>Success</body></html>");
+  });
+
+  // Captive portal detection do iOS
+  server.on("/hotspot.html", []() {
+    server.sendHeader("Location", "http://" + WiFi.softAPIP().toString(), true);
+    server.send(302, "text/plain", "");
+  });
+
+  // Captive portal detection do Android
+  server.on("/check_network_status.txt", []() {
+    server.send(200, "text/plain", "1");
+  });
+
+  // Para qualquer outra requisição não tratada
+  server.onNotFound([]() {
+    server.sendHeader("Location", "http://" + WiFi.softAPIP().toString(), true);
     server.send(302, "text/plain", "");
   });
 
