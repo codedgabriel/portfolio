@@ -3,7 +3,7 @@
 #include <DNSServer.h>
 
 // Configurações do Wi-Fi
-const char* ssid = "NÃO ENTRE NO GERENCIAR ROTEADOR";
+const char* ssid = "codegabriel";
 const char* password = "";  // Deixe vazio para rede aberta
 
 // DNS e servidor
@@ -11,7 +11,7 @@ const byte DNS_PORT = 53;
 DNSServer dnsServer;
 WebServer server(80);
 
-// Página HTML estilizada (mantenha o mesmo HTML que você já tem)
+// Página HTML estilizada
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -55,6 +55,11 @@ const char index_html[] PROGMEM = R"rawliteral(
       text-align: center;
       position: relative;
       overflow: hidden;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     header::before {
@@ -76,13 +81,19 @@ const char index_html[] PROGMEM = R"rawliteral(
       -webkit-text-fill-color: transparent;
       margin-bottom: 0.5rem;
       letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(0, 191, 255, 0.3);
     }
 
     header p.tagline {
       color: var(--text-muted);
       font-size: 1.1rem;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .header-cta {
+      margin-top: 2rem;
     }
 
     /* Marketing Section */
@@ -96,6 +107,13 @@ const char index_html[] PROGMEM = R"rawliteral(
       margin: 2rem auto;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.05);
+      transform: translateY(0);
+      transition: var(--transition);
+    }
+
+    .marketing-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 191, 255, 0.2);
     }
 
     .marketing-top h2 {
@@ -164,11 +182,28 @@ const char index_html[] PROGMEM = R"rawliteral(
       align-items: center;
       gap: 10px;
       box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
     }
 
     .cta-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(0, 191, 255, 0.4);
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
     }
 
     .cta-button:active {
@@ -252,6 +287,12 @@ const char index_html[] PROGMEM = R"rawliteral(
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
       color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .card:hover .icon {
+      transform: scale(1.1);
+      color: var(--secondary);
     }
 
     .card h4 {
@@ -296,11 +337,19 @@ const char index_html[] PROGMEM = R"rawliteral(
       color: var(--text-muted);
       font-size: 1.2rem;
       transition: var(--transition);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .social-links a:hover {
       color: var(--primary);
       transform: translateY(-3px);
+      background: rgba(0, 191, 255, 0.1);
     }
 
     /* Animations */
@@ -311,6 +360,24 @@ const char index_html[] PROGMEM = R"rawliteral(
 
     .floating {
       animation: float 3s ease-in-out infinite;
+    }
+
+    /* Particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(0, 191, 255, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
     /* Responsive */
@@ -348,9 +415,16 @@ const char index_html[] PROGMEM = R"rawliteral(
   </style>
 </head>
 <body>
+  <div class="particles" id="particles"></div>
+  
   <header>
     <h1>Code Gabriel</h1>
     <p class="tagline">Criando experiências digitais memoráveis</p>
+    <div class="header-cta">
+      <button class="cta-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i> Fale comigo agora
+      </button>
+    </div>
   </header>
 
   <section class="marketing-top">
@@ -361,8 +435,8 @@ const char index_html[] PROGMEM = R"rawliteral(
   <section class="cta-section">
     <h2>Transforme sua presença online</h2>
     <p>Desenvolvo sites modernos, responsivos e otimizados que convertem visitantes em clientes.</p>
-    <button class="cta-button" id="instagramBtn">
-      <i class="fab fa-instagram"></i> Fale comigo no Instagram
+    <button class="cta-button" id="whatsappBtn2">
+      <i class="fab fa-whatsapp"></i> Fale comigo no WhatsApp
     </button>
   </section>
 
@@ -404,8 +478,13 @@ const char index_html[] PROGMEM = R"rawliteral(
   </footer>
 
   <script>
-    document.getElementById("instagramBtn").addEventListener("click", function() {
-      window.open("https://instagram.com/codegabriel", "_blank");
+    // Botão do WhatsApp
+    document.getElementById("whatsappBtn").addEventListener("click", function() {
+      window.open("https://wa.me/98985641889", "_blank");
+    });
+    
+    document.getElementById("whatsappBtn2").addEventListener("click", function() {
+      window.open("https://wa.me/98985641889", "_blank");
     });
 
     // Efeito de digitação no header
@@ -447,11 +526,44 @@ const char index_html[] PROGMEM = R"rawliteral(
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       });
+      
+      // Cria partículas
+      createParticles();
     });
 
     window.addEventListener('scroll', animateOnScroll);
     // Dispara uma vez no carregamento
     animateOnScroll();
+
+    // Efeito de partículas
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Tamanho aleatório entre 2px e 5px
+        const size = Math.random() * 3 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Posição aleatória
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Opacidade aleatória
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        
+        // Animação
+        const duration = Math.random() * 20 + 10;
+        particle.style.animation = `float ${duration}s infinite ease-in-out`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
   </script>
 </body>
 </html>
