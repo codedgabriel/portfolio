@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Shop | Templates Premium</title>
+    <link rel="shortcut icon" href="assets/coding.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --primary-darker: #1d4ed8;
+            --primary-light: #60a5fa;
+            --secondary: #06b6d4;
+            --secondary-dark: #0891b2;
+            --accent: #6366f1;
+            --accent-dark: #4f46e5;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --light-gray: #e2e8f0;
+            --gray: #64748b;
+            --dark-gray: #334155;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --tech-blue: #00d1ff;
+            --tech-purple: #a855f7;
+            --landing-page: var(--accent);
+            --one-page: var(--secondary);
+            --ecommerce: #ec4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: white;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            height: 42px;
+            filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--tech-blue), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--tech-blue), var(--primary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a i {
+            font-size: 0.9em;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--tech-blue), var(--primary));
+            color: var(--darker);
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(0, 209, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--tech-blue));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 209, 255, 0.4);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 8rem 0;
+            text-align: center;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.15) 0%, transparent 30%);
+            z-index: -1;
+            animation: float 12s infinite ease-in-out alternate;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.7));
+            z-index: -2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            background: linear-gradient(to right, #fff, var(--light-gray));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            color: var(--light-gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            padding: 0.8rem 1.8rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .primary-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            z-index: 1;
+        }
+
+        .primary-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .primary-button:hover::before {
+            opacity: 1;
+        }
+
+        .secondary-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .secondary-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Tech Elements */
+        .tech-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--tech-blue);
+            top: 10%;
+            left: 10%;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            bottom: 10%;
+            right: 10%;
+            animation: float 10s infinite ease-in-out reverse;
+        }
+
+        /* Search and Filter */
+        .search-filter {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: -5rem auto 3rem;
+            max-width: 1000px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            color: white;
+        }
+
+        .search-container input::placeholder {
+            color: var(--gray);
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3), 0 4px 12px rgba(59, 130, 246, 0.2);
+            outline: none;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .search-container button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .search-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 180px;
+            flex: 1;
+        }
+
+        .filter-group label {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        .filter-group select {
+            padding: 0.8rem 1rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            color: white;
+            cursor: pointer;
+        }
+
+        .filter-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3), 0 4px 12px rgba(59, 130, 246, 0.2);
+            outline: none;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 4rem 0;
+            position: relative;
+
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+        }
+
+        .product-badge {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            z-index: 2;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-price small {
+            font-size: 0.9rem;
+            color: var(--light-gray);
+            font-weight: 400;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .product-button {
+            padding: 0.6rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .buy-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        }
+
+        .details-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .details-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 5rem 0;
+            position: relative;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(2, 6, 23, 0.9));
+        }
+
+        .category-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .category-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .category-card:hover {
+            transform: translateY(-0.5rem) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-icon {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            z-index: -1;
+        }
+
+        .category-landing {
+            background: linear-gradient(135deg, var(--landing-page), var(--accent-dark));
+        }
+
+        .category-onepage {
+            background: linear-gradient(135deg, var(--one-page), var(--secondary-dark));
+        }
+
+        .category-content {
+            padding: 1.5rem;
+        }
+
+        .category-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .category-content p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--tech-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .category-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--tech-blue);
+            transition: width 0.3s ease;
+        }
+
+        .category-link:hover {
+            color: white;
+        }
+
+        .category-link:hover::after {
+            width: 100%;
+        }
+
+        .category-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .category-link:hover i {
+            transform: translateX(0.5rem);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary-dark), var(--darker));
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 209, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(79, 70, 229, 0.1) 0%, transparent 30%);
+            z-index: 0;
+        }
+
+        .testimonials .section-title h2 {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-0.5rem);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            opacity: 0.1;
+            line-height: 1;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .author-info p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, var(--darker), #020617);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--tech-blue);
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--tech-blue), var(--primary));
+            border-radius: 2px;
+        }
+
+        .footer-column p {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--tech-blue);
+            transform: translateX(0.5rem);
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--tech-blue), var(--primary));
+            color: white;
+            transform: translateY(-0.25rem);
+            box-shadow: 0 6px 15px rgba(0, 209, 255, 0.3);
+            border-color: transparent;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Tech Grid Background */
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(2, 6, 23, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            height: 80%;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: hidden;
+        }
+
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1), transparent 70%);
+            z-index: -1;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-gray);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: none;
+            border: none;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-modal:hover {
+            color: var(--danger);
+            background: rgba(239, 68, 68, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: var(--light-gray);
+            line-height: 1.6;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .modal-form input,
+        .modal-form select,
+        .modal-form textarea {
+            padding: 1rem 1.25rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus,
+        .modal-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3), 0 4px 12px rgba(59, 130, 246, 0.2);
+            outline: none;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .modal-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .modal-form button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .modal-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        }
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 6rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-container button {
+                padding: 1rem;
+                justify-content: center;
+            }
+
+            .filter-options {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filter-group {
+                min-width: 100%;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(10px, 10px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            100% {
+                opacity: 0.6;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .pulse {
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 180px;
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.85rem;
+            font-weight: normal;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark) transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Glow Effect */
+        .glow {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+        }
+
+        /* Tech Elements */
+        .tech-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+            z-index: 0;
+        }
+
+        .tech-dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--tech-blue);
+            z-index: 0;
+            filter: blur(1px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Tech Elements -->
+    <div class="tech-circle circle-1"></div>
+    <div class="tech-circle circle-2"></div>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="assets/coding.png" alt="Code Gabriel Logo">
+                <h1>CodeShop</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#products"><i class="fas fa-code"></i> Produtos</a></li>
+                    <li><a href="#categories"><i class="fas fa-th-large"></i> Categorias</a></li>
+                    <li><a href="#testimonials"><i class="fas fa-star"></i> Avaliações</a></li>
+                    <li><a href="https://wa.me/5598985641889?text=Ol%C3%A1" class="cta-button"><i class="fas fa-sign-in-alt"></i> Contate-me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h2 class="glow">Templates Profissionais para Seu Negócio</h2>
+            <p>Landing Pages e One-Page Sites premium para impulsionar sua presença online.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="hero-button primary-button"><i class="fas fa-shopping-cart"></i> Ver
+                    Produtos</a>
+                <a href="#categories" class="hero-button secondary-button"><i class="fas fa-info-circle"></i> Saiba
+                    Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="search-filter">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar templates por nome ou descrição...">
+                <button id="searchButton"><i class="fas fa-search"></i> Buscar</button>
+            </div>
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="categoryFilter">Categoria</label>
+                    <select id="categoryFilter">
+                        <option value="all">Todas as Categorias</option>
+                        <option value="Site">Sites</option>
+                        <option value="Codigo">Códigos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="priceFilter">Faixa de Preço</label>
+                    <select id="priceFilter">
+                        <option value="all">Qualquer Preço</option>
+                        <option value="0-50">Até R$50</option>
+                        <option value="50-100">R$50 - R$100</option>
+                        <option value="100-500">R$100 - R$500</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sortBy">Ordenar por</label>
+                    <select id="sortBy">
+                        <option value="name-asc">Nome (A-Z)</option>
+                        <option value="name-desc">Nome (Z-A)</option>
+                        <option value="price-asc">Preço (Menor)</option>
+                        <option value="price-desc">Preço (Maior)</option>
+                        <option value="popular">Mais Populares</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="products-section" id="products">
+        <div class="tech-grid"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Code Shop</h2>
+                <p>Escolha entre nossa seleção de sites, softwares e códigos.</p>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Produtos serão inseridos aqui via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <div class="tech-grid"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossas Categorias</h2>
+                <p>Explore nossos templates profissionais para todas as necessidades</p>
+            </div>
+            <div class="category-cards">
+                <div class="category-card">
+                    <div class="category-icon category-landing">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Landing Pages</h3>
+                        <p>Templates de alta conversão para captação de leads e promoção de produtos.</p>
+                        <a href="#products" class="category-link">Ver Produtos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon category-onepage">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>One-Page Sites</h3>
+                        <p>Sites completos em uma única página, perfeitos para portfolios e negócios locais.</p>
+                        <a href="#products" class="category-link">Ver Produtos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="tech-grid"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Avaliações de Clientes</h2>
+                <p>Veja o que nossos clientes dizem sobre nossos templates</p>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Adquiri o template de landing page e superou todas as minhas expectativas. A conversão do meu
+                        site aumentou em 40% após a implementação.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Silva">
+                        <div class="author-info">
+                            <h4>Ana Silva</h4>
+                            <p>Marketing Digital - Startup Tech</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        O template one-page que comprei foi perfeito para meu restaurante. Fácil de personalizar e com
+                        um design moderno.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mendes">
+                        <div class="author-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Proprietário - Restaurante Sabor & Arte</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Como freelancer, esses templates me poupam horas de trabalho. A qualidade é impecável e o preço
+                        justo.
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Juliana Costa">
+                        <div class="author-info">
+                            <h4>Juliana Costa</h4>
+                            <p>Designer Freelancer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="tech-grid"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre Nós</h3>
+                    <p>Code Gabriel oferece templates profissionais de alta qualidade para desenvolvedores e empresas.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.github.com/docecaos"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/codegabriel/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/codegabriel"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Produtos</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Landing Pages</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> One-Page Sites</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Documentação</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Termos de Serviço</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><a href="mailto:contato@codegabriel.com"><i class="fas fa-envelope"></i>
+                                codegabriel.ti@gmail.com</a></li>
+                        <li><a href="tel:+5598985641889"><i class="fas fa-phone-alt"></i> (98) 98564-1889</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Code Gabriel. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Compra -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h3 id="modalProductName">Produto</h3>
+            <div class="product-gallery" id="productGallery">
+                <!-- Imagens do produto serão inseridas aqui -->
+            </div>
+            <p id="modalProductDescription">Descrição do produto selecionado</p>
+            <p><strong>Preço: </strong><span id="modalProductPrice">R$0,00</span></p>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="buyerName">Nome Completo</label>
+                    <input type="text" id="buyerName" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="buyerEmail">E-mail</label>
+                    <input type="email" id="buyerEmail" placeholder="Seu e-mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentMethod">Método de Pagamento</label>
+                    <select id="paymentMethod" required>
+                        <option value="">Selecione...</option>
+                        <option value="credit">Cartão de Crédito</option>
+                        <option value="pix">PIX</option>
+                        <option value="boleto">Boleto Bancário</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialRequests">Observações</label>
+                    <textarea id="specialRequests" placeholder="Alguma observação especial?"></textarea>
+                </div>
+                <button type="submit"><i class="fas fa-shopping-cart"></i> Finalizar Compra</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dados dos produtos (focado em landing pages e one-page sites)
+        const products = [
+            {
+                "id": 1,
+                "name": "Landing Page",
+                "description": "Moderna e responsiva, focada em conversão, com elementos como depoimentos e chamadas para ação. Ideal para destacar seu produto e aumentar vendas.",
+                "type": "Site",
+                "price": 199,
+                "discount": 300.00,
+                "tag": "Site",
+                "images": [
+                    "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                ],
+                "rating": 4.9,
+                "sales": 210
+            }
+            ,
+            {
+                id: 2,
+                name: "One-Page",
+                description: "Site completo em uma única página, com design moderno e responsivo. Ideal para apresentar seu negócio, portfólio ou serviço de forma prática e impactante.",
+                type: "Site",
+                price: 200,
+                tag: "Site",
+                images: [
+                    "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                ],
+                rating: 4.6,
+                sales: 78
+            },{
+    "id": 3,
+    "name": "Site Institucional",
+    "description": "Ideal para empresas que desejam apresentar seus serviços, equipe e missão de forma clara e profissional. Design responsivo com seções bem estruturadas.",
+    "type": "Site",
+    "price": 280,
+    "tag": "Site",
+    "images": [
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    ],
+    "rating": 4.8,
+    "sales": 102
+},
+{
+    "id": 4,
+    "name": "Página de Evento",
+    "description": "Site focado em divulgar eventos com contagem regressiva, programação, localização e formulário de inscrição. Perfeito para lançamentos, workshops e conferências.",
+    "type": "Site",
+    "price": 230,
+    "tag": "Site",
+    "images": [
+        "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    ],
+    "rating": 4.7,
+    "sales": 86
+},
+{
+  "id": 5,
+  "name": "Presente Rápido",
+  "description": "Um site romântico, barato e pronto em minutos. Presenteie de forma criativa e rápida!",
+  "type": "Codigo",
+  "price": 10,
+  "tag": "Codigo",
+  "images": [
+    "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+  ],
+  "rating": 4.7,
+  "sales": 86
+},
+{
+  "id": 6,
+  "name": "One-Page Template",
+  "description": "Template one-page moderno e responsivo, ideal para portfólios, produtos ou serviços. Simples, elegante e fácil de personalizar.",
+  "type": "Codigo",
+  "price": 100,
+  "tag": "Codigo",
+  "images": [
+    "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+  ],
+  "rating": 4.7,
+  "sales": 86
+}
+
+
+
+
+        ];
+
+        // Função para renderizar os produtos
+        function renderProducts(productsToRender) {
+            const productsGrid = document.getElementById('productsGrid');
+            productsGrid.innerHTML = '';
+
+            productsToRender.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card fade-in';
+
+                // Determinar a classe do badge com base no tipo
+                let badgeClass = '';
+                let badgeText = '';
+                switch (product.tag) {
+                    case 'Site':
+                        badgeClass = 'tag-Site';
+                        badgeText = 'Site';
+                        break;
+                    case 'Codigo':
+                        badgeClass = 'tag-codigo';
+                        badgeText = 'Código';
+                        break;
+                }
+
+                // Usar a primeira imagem como background
+                const bgImage = product.images[0];
+
+                productCard.innerHTML = `
+                    <div class="product-image" style="background-image: url('${bgImage}')">
+                        <span class="product-badge ${badgeClass}">${badgeText}</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-meta">
+                            <div class="product-price">
+                                R$${product.price.toFixed(2)}
+                                ${product.discount ? `<small>R$${product.discount.toFixed(2)}</small>` : ''}
+                            </div>
+                            <div class="product-actions">
+                                <button class="product-button details-button tooltip" data-id="${product.id}">
+                                    <i class="fas fa-eye"></i>
+                                    <span class="tooltiptext">Ver detalhes do produto</span>
+                                </button>
+                                <button class="product-button buy-button" data-id="${product.id}">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                productsGrid.appendChild(productCard);
+            });
+
+            // Adicionar eventos aos botões de compra
+            document.querySelectorAll('.buy-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    showProductModal(productId);
+                });
+            });
+
+            // Adicionar eventos aos botões de detalhes
+            document.querySelectorAll('.details-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    showProductDetails(productId);
+                });
+            });
+        }
+
+        // Função para mostrar modal de produto
+        function showProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+
+            if (product) {
+                document.getElementById('modalProductName').textContent = product.name;
+                document.getElementById('modalProductDescription').textContent = product.description;
+                document.getElementById('modalProductPrice').textContent = `R$${product.price.toFixed(2)}`;
+
+                // Adicionar imagens à galeria
+                const gallery = document.getElementById('productGallery');
+                gallery.innerHTML = '';
+                product.images.forEach(image => {
+                    gallery.innerHTML += `<img src="${image}" alt="${product.name}">`;
+                });
+
+                const modal = document.getElementById('purchaseModal');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Função para mostrar detalhes do produto
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                alert(`Detalhes do produto: ${product.name}\n\n${product.description}\n\nPreço: R$${product.price.toFixed(2)}`);
+            }
+        }
+
+        // Função para filtrar produtos
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const priceFilter = document.getElementById('priceFilter').value;
+            const sortBy = document.getElementById('sortBy').value;
+
+            let filteredProducts = products.filter(product => {
+                // Filtro de pesquisa
+                const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                    product.description.toLowerCase().includes(searchTerm) ||
+                    product.tag.includes(searchTerm);
+
+                // Filtro de categoria
+                const matchesCategory = categoryFilter === 'all' || product.tag === categoryFilter;
+
+                // Filtro de preço
+                let matchesPrice = true;
+                if (priceFilter !== 'all') {
+                    if (priceFilter === '500+') {
+                        matchesPrice = product.price >= 500;
+                    } else {
+                        const [min, max] = priceFilter.split('-').map(Number);
+                        matchesPrice = product.price >= min && product.price <= max;
+                    }
+                }
+
+                return matchesSearch && matchesCategory && matchesPrice;
+            });
+
+            // Ordenação
+            filteredProducts.sort((a, b) => {
+                if (sortBy === 'name-asc') return a.name.localeCompare(b.name);
+                if (sortBy === 'name-desc') return b.name.localeCompare(a.name);
+                if (sortBy === 'price-asc') return a.price - b.price;
+                if (sortBy === 'price-desc') return b.price - a.price;
+                if (sortBy === 'popular') return b.sales - a.sales;
+                return 0;
+            });
+
+            renderProducts(filteredProducts);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterProducts);
+        document.getElementById('searchButton').addEventListener('click', filterProducts);
+        document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+        document.getElementById('priceFilter').addEventListener('change', filterProducts);
+        document.getElementById('sortBy').addEventListener('change', filterProducts);
+
+        // Modal events
+        document.querySelector('.close-modal').addEventListener('click', closeModal);
+        document.querySelector('.modal-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Compra realizada com sucesso! Você receberá um e-mail com os detalhes.');
+            closeModal();
+            this.reset();
+        });
+
+        function closeModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function (event) {
+            if (event.target === document.getElementById('purchaseModal')) {
+                closeModal();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Renderizar produtos inicialmente
+        renderProducts(products);
+
+        // Adicionar elementos tech aleatórios
+        function addTechElements() {
+            const sections = document.querySelectorAll('section, footer');
+
+            sections.forEach(section => {
+                // Adicionar linhas tech
+                for (let i = 0; i < 5; i++) {
+                    const line = document.createElement('div');
+                    line.className = 'tech-line';
+                    line.style.width = `${Math.random() * 200 + 100}px`;
+                    line.style.top = `${Math.random() * 100}%`;
+                    line.style.left = `${Math.random() * 100}%`;
+                    line.style.opacity = Math.random() * 0.3 + 0.1;
+                    section.appendChild(line);
+                }
+
+                // Adicionar dots tech
+                for (let i = 0; i < 10; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'tech-dot';
+                    dot.style.top = `${Math.random() * 100}%`;
+                    dot.style.left = `${Math.random() * 100}%`;
+                    dot.style.opacity = Math.random() * 0.5 + 0.2;
+                    section.appendChild(dot);
+                }
+            });
+        }
+
+        // Chamar a função após o carregamento
+        window.addEventListener('load', addTechElements);
+    </script>
+</body>
+
+</html>
