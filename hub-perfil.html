@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Gabriel | Desenvolvedor Web & Soluções Digitais</title>
+    <meta name="description" content="Portfólio profissional de Davi Gabriel - Desenvolvedor Web, Criador do Acadly e especialista em soluções digitais eficientes">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Code Gabriel | Desenvolvedor Web">
+    <meta property="og:description" content="Transformo ideias em realidade digital com soluções web eficientes e modernas">
+    <meta property="og:image" content="https://codedgabriel.github.io/assets/preview.jpg">
+    <meta property="og:url" content="https://codedgabriel.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="shortcut icon" href="assets/coding.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --container-color: #1a1a1a;
+            --button-color: #252525;
+            --button-hover: #333333;
+            --text-color: #f5f5f5;
+            --accent-color: #6a11cb;
+            --accent-color-2: #2575fc;
+            --accent-gradient: linear-gradient(135deg, #6a11cb, #2575fc);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            --card-bg: #202020;
+            --glow-color: rgba(106, 17, 203, 0.4);
+            --success-color: #4CAF50;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --container-color: #ffffff;
+            --button-color: #f0f0f0;
+            --button-hover: #e0e0e0;
+            --text-color: #333333;
+            --card-bg: #fafafa;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --success-color: #2E7D32;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            width: 100vw;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(106, 17, 203, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(37, 117, 252, 0.1) 0%, transparent 50%);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+        }
+
+        /* Container Principal */
+        .box {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(20px);
+            z-index: 10;
+        }
+
+        .box.active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+
+        .box-container {
+            width: min(90%, 500px);
+            height: auto;
+            min-height: 500px;
+            max-height: 95vh;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+            align-items: center;
+            flex-direction: column;
+            background-color: var(--container-color);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow-y: auto;
+        }
+
+        /* Header */
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(106, 17, 203, 0.5);
+        }
+
+        .hub-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            text-align: center;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            max-width: 80%;
+        }
+
+        .badge-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background: rgba(106, 17, 203, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Botões Principais */
+        .hub-bnt-container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .hub-bnt {
+            border: none;
+            width: 100%;
+            height: 56px;
+            background-color: var(--button-color);
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hub-bnt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .hub-bnt:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hub-bnt:hover::before {
+            opacity: 0.1;
+        }
+
+        .hub-bnt span {
+            margin-left: 16px;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hub-bnt i {
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .hub-bnt:hover i {
+            transform: scale(1.1);
+        }
+
+        /* Botão de Destaque */
+        .callToAction {
+            position: relative;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 1;
+            height: 56px;
+            margin-bottom: 5px;
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .callToAction:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(106, 17, 203, 0.6);
+        }
+
+        /* Seção de Projetos */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+            margin: 15px 0 20px;
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(106, 17, 203, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-title i {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .card-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(106, 17, 203, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Seção de Habilidades */
+        .skills-container {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-icon {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+        }
+
+        .skill-name {
+            font-size: 0.7rem;
+            text-align: center;
+        }
+
+        /* Seção de Contato */
+        .contact-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--button-color);
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        .success-message {
+            display: none;
+            background-color: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Rodapé */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer-link i {
+            font-size: 1rem;
+        }
+
+        /* Botão de Voltar */
+        .back-button {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            border: none;
+            width: auto;
+            cursor: pointer;
+            gap: 8px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button:hover {
+            opacity: 1;
+            background: rgba(106, 17, 203, 0.05);
+        }
+
+        .back-button i {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover i {
+            transform: translateX(-5px);
+        }
+
+        /* Toggle de Tema */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--button-color);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Efeitos Visuais */
+        .portfolio-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.05) 45%,
+                rgba(255, 255, 255, 0.02) 50%,
+                rgba(255, 255, 255, 0) 60%
+            );
+            transform: rotate(30deg);
+            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .portfolio-card:hover::after {
+            left: 100%;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .box-container {
+                padding: 25px;
+                border-radius: 14px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .box-container {
+                width: 95%;
+                min-height: 450px;
+                padding: 20px;
+            }
+            
+            .hub-bnt {
+                height: 50px;
+                padding: 0 16px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-height: 700px) {
+            .box-container {
+                max-height: 95vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Botão de Toggle Theme -->
+    <button class="theme-toggle" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hub Principal -->
+    <section id="hub-container" class="box active">
+        <div class="box-container animate__animated animate__fadeIn">
+            <div class="profile-header">
+                <!-- Adicione sua foto de perfil no caminho assets/profile.jpg -->
+                <img src="assets/icon.png" alt="Code Gabriel" class="profile-pic" onerror="this.src='https://via.placeholder.com/100'">
+                <h1 class="hub-title">Code Gabriel</h1>
+                <p class="tagline">Transformo ideias em realidade</p>
+                
+                <div class="badge-container">
+                    <span class="badge"><i class="fas fa-code"></i> Full Stack</span>
+                    <span class="badge"><i class="fas fa-mobile-alt"></i> Responsivo</span>
+                    <span class="badge"><i class="fas fa-bolt"></i> Performance</span>
+                </div>
+            </div>
+
+            <div class="hub-bnt-container">
+                <a href="#contact" class="callToAction hub-bnt">
+                    
+                    <span>Contrate meus serviços</span>
+                </a>
+
+                <button class="hub-bnt" onclick="showSection('projects')">
+                    <i class="fas fa-code"></i>
+                    <span>Meus Projetos</span>
+                </button>
+
+                <button class="hub-bnt" onclick="showSection('skills')">
+                    <i class="fas fa-cogs"></i>
+                    <span>Minhas Habilidades</span>
+                </button>
+
+                <a href="https://github.com/codedgabriel" target="_blank" rel="noopener noreferrer" class="hub-bnt">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/davi-gabriel-b081a434b/" target="_blank" rel="noopener noreferrer" class="hub-bnt">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://github.com/codedgabriel" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.instagram.com/codegabriel/" target="_blank" class="footer-link">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="mailto:seuemail@exemplo.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Projetos -->
+    <section id="projects-container" class="box">
+        <div class="box-container">
+            <span class="section-title">Meus Projetos</span>
+
+            <div class="portfolio-grid">
+                <a href="http://arqueriaimperial.com.br" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-bullseye"></i>
+                        Arqueria Imperial
+                    </h3>
+                    <p class="card-desc">Site profissional para clube de arco e flecha com design moderno e totalmente responsivo, otimizado para performance e SEO.</p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">UI/UX</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/codedgabriel/acadly" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Acadly
+                    </h3>
+                    <p class="card-desc">Plataforma completa para acadêmicos com gerador de referências, organizador de estudos, calculadora de notas e muito mais.</p>
+                    <div class="card-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">API REST</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/codedgabriel/codeshop" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-shopping-cart"></i>
+                        Code Shop
+                    </h3>
+                    <p class="card-desc">Marketplace para desenvolvedores com snippets, templates e ferramentas prontas para uso em projetos reais.</p>
+                    <div class="card-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">E-commerce</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/codedgabriel" target="_blank" rel="noopener noreferrer" class="portfolio-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-code-branch"></i>
+                        Outros Projetos
+                    </h3>
+                    <p class="card-desc">Diversos projetos open-source e experimentos disponíveis no meu GitHub para demonstração de habilidades.</p>
+                    <div class="card-tech">
+                        <span class="tech-tag">Variadas</span>
+                        <span class="tech-tag">Open Source</span>
+                    </div>
+                </a>
+            </div>
+
+            <button class="back-button" onclick="showSection('hub')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Voltar ao menu</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Seção de Habilidades -->
+    <section id="skills-container" class="box">
+        <div class="box-container">
+            <span class="section-title">Minhas Habilidades</span>
+
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4><i class="fas fa-laptop-code"></i> Front-End</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5 skill-icon"></i>
+                            <span class="skill-name">HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt skill-icon"></i>
+                            <span class="skill-name">CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js skill-icon"></i>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react skill-icon"></i>
+                            <span class="skill-name">React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mobile-alt skill-icon"></i>
+                            <span class="skill-name">Responsivo</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-paint-brush skill-icon"></i>
+                            <span class="skill-name">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-server"></i> Back-End</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-node-js skill-icon"></i>
+                            <span class="skill-name">Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database skill-icon"></i>
+                            <span class="skill-name">MongoDB</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database skill-icon"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-bolt skill-icon"></i>
+                            <span class="skill-name">APIs REST</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4><i class="fas fa-tools"></i> Ferramentas</h4>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt skill-icon"></i>
+                            <span class="skill-name">Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-github skill-icon"></i>
+                            <span class="skill-name">GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-terminal skill-icon"></i>
+                            <span class="skill-name">CLI</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud skill-icon"></i>
+                            <span class="skill-name">Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="back-button" onclick="showSection('hub')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Voltar ao menu</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contact-container" class="box">
+        <div class="box-container">
+            <span class="section-title">Entre em Contato</span>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entrarei em contato em breve.
+                </div>
+            </form>
+
+            <div class="footer-links" style="margin-top: 25px;">
+                <a href="https://wa.me/SEUNUMERO" target="_blank" class="footer-link">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.linkedin.com/in/davi-gabriel-b081a434b/" target="_blank" class="footer-link">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:seuemail@exemplo.com" class="footer-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+
+            <button class="back-button" onclick="showSection('hub')">
+                <i class="fas fa-arrow-left"></i>
+                <span>Voltar ao menu</span>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Tema claro/escuro
+        const themeToggle = document.querySelector('.theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+
+        // Aplicar tema salvo
+        document.body.setAttribute('data-theme', currentTheme);
+        themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            
+            // Adiciona animação ao ícone
+            themeToggle.classList.add('animate__animated', 'animate__rubberBand');
+            setTimeout(() => {
+                themeToggle.classList.remove('animate__animated', 'animate__rubberBand');
+            }, 1000);
+        });
+
+        // Mostrar/ocultar seções
+        function showSection(sectionId) {
+            // Esconde todas as seções com animação
+            document.querySelectorAll('.box').forEach(section => {
+                if (section.classList.contains('active')) {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        section.classList.remove('active');
+                    }, 300);
+                }
+            });
+
+            // Mostra a seção solicitada com animação
+            setTimeout(() => {
+                const sectionMap = {
+                    'hub': 'hub-container',
+                    'projects': 'projects-container',
+                    'skills': 'skills-container',
+                    'contact': 'contact-container'
+                };
+
+                if (sectionMap[sectionId]) {
+                    const section = document.getElementById(sectionMap[sectionId]);
+                    section.classList.add('active');
+                    setTimeout(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, 10);
+                }
+            }, 300);
+        }
+
+        // Fecha seções ao clicar no backdrop
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('box')) {
+                showSection('hub');
+            }
+        });
+
+        // Efeito de digitação no título
+        const title = document.querySelector('.hub-title');
+        if (title) {
+            const originalText = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            const typingEffect = setInterval(() => {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typingEffect);
+                }
+            }, 100);
+        }
+
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulação de envio (substituir por código real)
+                setTimeout(() => {
+                    contactForm.reset();
+                    successMessage.style.display = 'block';
+                    
+                    // Esconde a mensagem após 5 segundos
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                }, 1000);
+            });
+        }
+
+        // Suavizar scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    showSection(target.id.replace('-container', ''));
+                }
+            });
+        });
+
+        // Animar elementos quando visíveis na tela
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.portfolio-card, .skill-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Executa uma vez ao carregar
+    </script>
+</body>
+
+</html>
