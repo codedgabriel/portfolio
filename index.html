@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Gabriel | Desenvolvedor Web & Designer</title>
+  <title>Gabriel | Desenvolvedor Full-Stack</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -19,6 +19,8 @@
       --gray: #94a3b8;
       --card-bg: rgba(15, 23, 42, 0.7);
       --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --glass: rgba(2, 6, 23, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
 
     * {
@@ -28,11 +30,14 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Space Grotesk', 'Poppins', sans-serif;
       background-color: var(--darker);
       color: var(--light);
       line-height: 1.7;
       overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 223, 154, 0.1) 0%, transparent 20%);
     }
 
     /* Scrollbar */
@@ -57,6 +62,12 @@
       padding: 0 1.5rem;
     }
 
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
     /* Header */
     header {
       padding: 1.5rem 0;
@@ -65,15 +76,15 @@
       left: 0;
       width: 100%;
       z-index: 100;
-      backdrop-filter: blur(10px);
-      background: rgba(2, 6, 23, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      background: var(--glass);
+      border-bottom: 1px solid var(--glass-border);
       transition: var(--transition);
     }
 
     header.scrolled {
       padding: 1rem 0;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     }
 
     .navbar {
@@ -89,6 +100,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.5px;
     }
 
     .nav-links {
@@ -103,6 +116,7 @@
       font-size: 0.95rem;
       transition: var(--transition);
       position: relative;
+      letter-spacing: 0.5px;
     }
 
     .nav-links a:hover {
@@ -132,6 +146,11 @@
       font-size: 1.5rem;
       cursor: pointer;
       z-index: 101;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-btn:hover {
+      color: var(--primary);
     }
 
     /* Mobile Menu */
@@ -147,6 +166,8 @@
       transition: var(--transition);
       padding: 5rem 2rem;
       box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      border-left: 1px solid var(--glass-border);
     }
 
     .mobile-menu.active {
@@ -185,20 +206,9 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 6rem 0 4rem;
+      padding: 8rem 0 4rem;
       position: relative;
       overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
-      z-index: -1;
     }
 
     .hero-content {
@@ -215,12 +225,29 @@
       flex: 1;
       display: flex;
       justify-content: center;
+      position: relative;
     }
 
     .hero-image img {
       max-width: 100%;
       border-radius: 20px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      z-index: 1;
+      opacity: 0.1;
+      filter: blur(50px);
     }
 
     .hero-subtitle {
@@ -229,23 +256,26 @@
       margin-bottom: 1rem;
       display: inline-block;
       font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .hero-title {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 1.5rem;
       background: linear-gradient(to right, var(--light), var(--primary-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -1px;
     }
 
     .hero-description {
       color: var(--gray);
       margin-bottom: 2rem;
       max-width: 600px;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .cta-buttons {
@@ -264,6 +294,8 @@
       align-items: center;
       gap: 0.5rem;
       font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -278,6 +310,7 @@
     }
 
     .btn-secondary {
+      background: transparent;
       border: 1px solid var(--gray);
       color: var(--light);
     }
@@ -285,19 +318,49 @@
     .btn-secondary:hover {
       border-color: var(--primary);
       color: var(--primary);
+      background: rgba(37, 99, 235, 0.1);
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 1.1rem;
+      transition: var(--transition);
+      border: 1px solid var(--glass-border);
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-3px);
+      border-color: var(--primary);
     }
 
     /* About Section */
     .section {
-      padding: 5rem 0;
+      padding: 6rem 0;
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 3rem;
       text-align: center;
       position: relative;
+      letter-spacing: -1px;
     }
 
     .section-title::after {
@@ -331,6 +394,8 @@
       width: 100%;
       border-radius: 20px;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
     }
 
     .about-image::before {
@@ -342,7 +407,13 @@
       height: 100%;
       border: 2px solid var(--primary);
       border-radius: 20px;
-      z-index: -1;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .about-image:hover::before {
+      top: -15px;
+      left: -15px;
     }
 
     .skills {
@@ -357,13 +428,21 @@
       padding: 0.5rem 1rem;
       border-radius: 50px;
       font-size: 0.85rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .skill:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-3px);
     }
 
     /* Services Section */
     .services {
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.9));
+      background: linear-gradient(to bottom, var(--glass), rgba(15, 23, 42, 0.9));
       position: relative;
+      overflow: hidden;
     }
 
     .services::before {
@@ -381,7 +460,7 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
       margin-top: 3rem;
     }
@@ -389,10 +468,23 @@
     .service-card {
       background: var(--card-bg);
       border-radius: 15px;
-      padding: 1.5rem;
+      padding: 2rem;
       transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
       backdrop-filter: blur(5px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, transparent 100%);
+      z-index: -1;
     }
 
     .service-card:hover {
@@ -402,26 +494,33 @@
     }
 
     .service-icon {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--primary);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      width: 60px;
+      height: 60px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 12px;
+      align-items: center;
+      justify-content: center;
     }
 
     .service-title {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 1rem;
     }
 
     .service-description {
       color: var(--gray);
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     /* Portfolio Section */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 1.5rem;
       margin-top: 3rem;
     }
@@ -430,7 +529,8 @@
       position: relative;
       border-radius: 15px;
       overflow: hidden;
-      height: 250px;
+      height: 300px;
+      transition: var(--transition);
     }
 
     .portfolio-image {
@@ -450,7 +550,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 1.5rem;
+      padding: 2rem;
       opacity: 0;
       transition: var(--transition);
     }
@@ -464,7 +564,7 @@
     }
 
     .portfolio-title {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
       transform: translateY(20px);
       transition: var(--transition);
@@ -472,7 +572,8 @@
 
     .portfolio-category {
       color: var(--secondary);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      font-weight: 600;
       transform: translateY(20px);
       transition: var(--transition);
       transition-delay: 0.1s;
@@ -483,14 +584,54 @@
       transform: translateY(0);
     }
 
+    /* Stats Section */
+    .stats {
+      background: linear-gradient(to right, var(--darker), rgba(15, 23, 42, 0.9));
+      padding: 4rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 15px;
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
     /* Contact Section */
     .contact {
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.9));
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), var(--darker));
     }
 
     .contact-container {
       display: flex;
-      gap: 2rem;
+      gap: 3rem;
     }
 
     .contact-info {
@@ -500,9 +641,10 @@
     .contact-form {
       flex: 1;
       background: var(--card-bg);
-      padding: 1.5rem;
+      padding: 2rem;
       border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(5px);
     }
 
     .info-item {
@@ -513,26 +655,33 @@
     }
 
     .info-icon {
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background: rgba(37, 99, 235, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--primary);
       flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .info-item:hover .info-icon {
+      background: var(--primary);
+      color: var(--light);
+      transform: rotate(10deg);
     }
 
     .info-content h4 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 0.3rem;
     }
 
     .info-content p, .info-content a {
       color: var(--gray);
-      font-size: 0.95rem;
+      font-size: 1rem;
       text-decoration: none;
       transition: var(--transition);
     }
@@ -542,18 +691,18 @@
     }
 
     .form-group {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .form-control {
       width: 100%;
-      padding: 0.8rem 1rem;
+      padding: 1rem 1.2rem;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--glass-border);
       border-radius: 8px;
       color: var(--light);
       font-family: inherit;
-      font-size: 0.95rem;
+      font-size: 1rem;
       transition: var(--transition);
     }
 
@@ -561,53 +710,92 @@
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     textarea.form-control {
-      min-height: 120px;
+      min-height: 150px;
       resize: vertical;
     }
 
     /* Footer */
     footer {
       background: var(--darker);
-      padding: 3rem 0;
+      padding: 4rem 0 2rem;
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid var(--glass-border);
     }
 
-    .social-links {
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-social-links {
       display: flex;
       justify-content: center;
       gap: 1.2rem;
       margin-bottom: 2rem;
     }
 
-    .social-link {
-      width: 40px;
-      height: 40px;
+    .footer-social-link {
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.05);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--gray);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       transition: var(--transition);
+      border: 1px solid var(--glass-border);
     }
 
-    .social-link:hover {
+    .footer-social-link:hover {
       background: var(--primary);
       color: var(--light);
       transform: translateY(-5px);
+      border-color: var(--primary);
     }
 
     .copyright {
       color: var(--gray);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
     }
 
     /* Responsive */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+    }
+
     @media (max-width: 992px) {
       .hero-content,
       .about-content,
@@ -616,15 +804,15 @@
       }
 
       .hero {
-        padding: 5rem 0 3rem;
+        padding: 7rem 0 3rem;
       }
 
       .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
 
       .section-title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
       }
 
       .about-image {
@@ -634,6 +822,10 @@
       .about-image::before {
         top: -15px;
         left: -15px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -647,7 +839,7 @@
       }
 
       .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .hero-subtitle {
@@ -655,42 +847,34 @@
       }
 
       .hero-description {
-        font-size: 0.95rem;
+        font-size: 1rem;
       }
 
       .section {
-        padding: 4rem 0;
+        padding: 5rem 0;
       }
 
       .section-title {
-        font-size: 1.6rem;
+        font-size: 2rem;
         margin-bottom: 2rem;
-      }
-
-      .service-card {
-        padding: 1.5rem 1rem;
       }
 
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
-      .contact-container {
-        flex-direction: column;
-      }
-
-      .contact-info {
-        margin-bottom: 2rem;
+      .stats-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 576px) {
       .container {
-        padding: 0 1rem;
+        padding: 0 1.2rem;
       }
 
       .hero-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .btn {
@@ -703,12 +887,16 @@
       }
 
       .skill {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
       }
 
       .services-grid {
         grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
       }
     }
 
@@ -722,6 +910,15 @@
       animation: float 3s ease-in-out infinite;
     }
 
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -732,21 +929,41 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <!-- Particles Background -->
+  <div class="particles" id="particles"></div>
+
   <!-- Header -->
   <header id="header">
     <div class="container">
       <nav class="navbar">
-        <a href="#" class="logo">CodeGabriel</a>
+        <a href="#" class="logo">Code Gabriel</a>
         <div class="nav-links">
           <a href="#home">Início</a>
           <a href="#about">Sobre</a>
-          <a href="#services">Serviços</a>
-          <a href="#portfolio">Portfólio</a>
+          <a href="#skills">Habilidades</a>
+          <a href="#portfolio">Projetos</a>
           <a href="#contact">Contato</a>
-          <a href="codeshop">Code Shop</a>
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn">
           <i class="fas fa-bars"></i>
@@ -759,10 +976,9 @@
       <div class="nav-links">
         <a href="#home">Início</a>
         <a href="#about">Sobre</a>
-        <a href="#services">Serviços</a>
-        <a href="#portfolio">Portfólio</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#portfolio">Projetos</a>
         <a href="#contact">Contato</a>
-        <a href="codeshop">Code Shop</a>
       </div>
     </div>
     <div class="menu-overlay" id="menuOverlay"></div>
@@ -773,20 +989,34 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-text fade-in">
-          <span class="hero-subtitle">Desenvolvedor Web & Designer</span>
-          <h1 class="hero-title">Soluções digitais que impulsionam seu negócio</h1>
-          <p class="hero-description">Transformo ideias em realidade com websites modernos, responsivos e de alto desempenho, focados em resultados e experiência do usuário.</p>
+          <span class="hero-subtitle">Desenvolvedor Full-Stack</span>
+          <h1 class="hero-title">Transformando ideias em realidade digital</h1>
+          <p class="hero-description">Crio soluções web performáticas e escaláveis com foco em experiência do usuário e boas práticas de desenvolvimento.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">
-              <i class="fas fa-paper-plane"></i> Fale comigo
+            <a href="#contact" class="btn btn-primary pulse">
+              <i class="fas fa-paper-plane"></i> Contate-me
             </a>
             <a href="#portfolio" class="btn btn-secondary">
-              <i class="fas fa-eye"></i> Ver projetos
+              <i class="fas fa-code"></i> Ver Projetos
+            </a>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/codedgabriel" class="social-link" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/codedgabriel" class="social-link" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/codedgabriel" class="social-link" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com/codedgabriel" class="social-link" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
             </a>
           </div>
         </div>
         <div class="hero-image fade-in" style="transition-delay: 0.2s;">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Desenvolvimento Web">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Desenvolvimento Web" class="floating">
         </div>
       </div>
     </div>
@@ -798,18 +1028,20 @@
       <h2 class="section-title fade-in">Sobre Mim</h2>
       <div class="about-content">
         <div class="about-text fade-in">
-          <p>Olá, eu sou Gabriel! Um desenvolvedor web full-stack e designer UI/UX com paixão por criar soluções digitais que combinam estética impressionante com funcionalidade excepcional.</p>
-          <p>Com experiência no mercado, ajudo empreendedores e empresas a estabelecerem uma presença online profissional que realmente converte visitantes em clientes.</p>
-          <p>Minha abordagem une as melhores práticas de desenvolvimento com design centrado no usuário, resultando em produtos digitais que são visualmente atraentes e altamente funcionais.</p>
-          <div class="skills">
-            <span class="skill">HTML5/CSS3</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">React</span>
-            <span class="skill">Node.js</span>
-            <span class="skill">UI/UX Design</span>
-            <span class="skill">Responsividade</span>
-            <span class="skill">SEO</span>
-            <span class="skill">Performance</span>
+          <p>Olá, eu sou Gabriel! Um desenvolvedor full-stack apaixonado por criar soluções digitais inovadoras e eficientes. Com experiência em diversas tecnologias, meu objetivo é entregar produtos que não apenas funcionem perfeitamente, mas que também proporcionem uma excelente experiência ao usuário.</p>
+          <p>Minha jornada na programação começou quando eu tinha 15 anos e desde então venho me especializando em desenvolvimento web, mobile e sistemas escaláveis. Acredito que o código bem escrito pode transformar negócios e melhorar vidas.</p>
+          <p>Quando não estou codando, você pode me encontrar estudando novas tecnologias, contribuindo para projetos open-source ou compartilhando conhecimento com a comunidade.</p>
+          <div class="skills" id="skills">
+            <span class="skill"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="skill"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="skill"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="skill"><i class="fab fa-react"></i> React</span>
+            <span class="skill"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="skill"><i class="fas fa-database"></i> MongoDB</span>
+            <span class="skill"><i class="fab fa-git-alt"></i> Git</span>
+            <span class="skill"><i class="fas fa-server"></i> AWS</span>
+            <span class="skill"><i class="fas fa-mobile-alt"></i> React Native</span>
+            <span class="skill"><i class="fas fa-bolt"></i> TypeScript</span>
           </div>
         </div>
         <div class="about-image fade-in" style="transition-delay: 0.2s;">
@@ -819,18 +1051,42 @@
     </div>
   </section>
 
+  <!-- Stats Section -->
+  <section class="section stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <div class="stat-number" id="projectsCount">50+</div>
+          <div class="stat-label">Projetos Concluídos</div>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay: 0.1s;">
+          <div class="stat-number" id="clientsCount">30+</div>
+          <div class="stat-label">Clientes Satisfeitos</div>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay: 0.2s;">
+          <div class="stat-number" id="experienceCount">5+</div>
+          <div class="stat-label">Anos de Experiência</div>
+        </div>
+        <div class="stat-item fade-in" style="transition-delay: 0.3s;">
+          <div class="stat-number" id="contributionsCount">100+</div>
+          <div class="stat-label">Contribuições Open-Source</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Section -->
   <section id="services" class="section services">
     <div class="container">
-      <h2 class="section-title fade-in">Meus Serviços</h2>
+      <h2 class="section-title fade-in">O Que Eu Faço</h2>
       <div class="services-grid">
         <div class="service-card fade-in">
           <div class="service-icon">
             <i class="fas fa-laptop-code"></i>
           </div>
           <h3 class="service-title">Desenvolvimento Web</h3>
-          <p class="service-description">Sites personalizados e sistemas web com tecnologia moderna, código limpo e arquitetura escalável para seu projeto.</p>
-          <a href="#contact" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+          <p class="service-description">Sites e aplicações web personalizadas com tecnologias modernas como React, Next.js e Node.js, garantindo performance e escalabilidade.</p>
+          <a href="#contact" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
             Saiba mais <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -838,19 +1094,19 @@
           <div class="service-icon">
             <i class="fas fa-mobile-alt"></i>
           </div>
-          <h3 class="service-title">Design Responsivo</h3>
-          <p class="service-description">Sites que se adaptam perfeitamente a qualquer dispositivo, garantindo a melhor experiência para seus usuários.</p>
-          <a href="#contact" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+          <h3 class="service-title">Aplicativos Mobile</h3>
+          <p class="service-description">Desenvolvimento de aplicativos iOS e Android com React Native, combinando performance nativa com desenvolvimento cross-platform.</p>
+          <a href="#contact" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
             Saiba mais <i class="fas fa-arrow-right"></i>
           </a>
         </div>
         <div class="service-card fade-in" style="transition-delay: 0.4s;">
           <div class="service-icon">
-            <i class="fas fa-search-dollar"></i>
+            <i class="fas fa-server"></i>
           </div>
-          <h3 class="service-title">Otimização SEO</h3>
-          <p class="service-description">Estratégias técnicas e de conteúdo para melhorar seu posicionamento nos mecanismos de busca e atrair mais clientes.</p>
-          <a href="#contact" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+          <h3 class="service-title">Backend & APIs</h3>
+          <p class="service-description">Construção de APIs robustas e sistemas backend com Node.js, Express, MongoDB e outras tecnologias modernas.</p>
+          <a href="#contact" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
             Saiba mais <i class="fas fa-arrow-right"></i>
           </a>
         </div>
@@ -861,25 +1117,31 @@
   <!-- Portfolio Section -->
   <section id="portfolio" class="section">
     <div class="container">
-      <h2 class="section-title fade-in">Portfólio</h2>
+      <h2 class="section-title fade-in">Meus Projetos</h2>
       <div class="portfolio-grid">
         <div class="portfolio-item fade-in">
-          <img src="assets/ode.webp" alt="Code Shop" class="portfolio-image">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="E-commerce Platform" class="portfolio-image">
           <div class="portfolio-overlay">
-            <h3 class="portfolio-title">Code Shop</h3>
-            <span class="portfolio-category">Loja Virtual</span>
+            <h3 class="portfolio-title">Plataforma E-commerce</h3>
+            <span class="portfolio-category">React • Node.js • MongoDB</span>
           </div>
         </div>
 
         <div class="portfolio-item fade-in" style="transition-delay: 0.2s;">
-          <img src="assets/imp.webp" alt="Arqueria Imperial" class="portfolio-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Task Management App" class="portfolio-image">
           <div class="portfolio-overlay">
-            <h3 class="portfolio-title">Arqueria Imperial</h3>
-            <span class="portfolio-category">Empresarial</span>
+            <h3 class="portfolio-title">App de Gerenciamento</h3>
+            <span class="portfolio-category">React Native • Firebase</span>
           </div>
         </div>
-        
 
+        <div class="portfolio-item fade-in" style="transition-delay: 0.4s;">
+          <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Analytics Dashboard" class="portfolio-image">
+          <div class="portfolio-overlay">
+            <h3 class="portfolio-title">Dashboard Analítico</h3>
+            <span class="portfolio-category">Next.js • TypeScript • D3.js</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -887,17 +1149,17 @@
   <!-- Contact Section -->
   <section id="contact" class="section contact">
     <div class="container">
-      <h2 class="section-title fade-in">Vamos Conversar</h2>
+      <h2 class="section-title fade-in">Vamos Trabalhar Juntos</h2>
       <div class="contact-container">
         <div class="contact-info fade-in">
-          <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Informações de Contato</h3>
+          <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Entre em Contato</h3>
           <div class="info-item">
             <div class="info-icon">
               <i class="fas fa-envelope"></i>
             </div>
             <div class="info-content">
               <h4>Email</h4>
-              <a href="mailto:codegabriel.ti@gmail.com">codegabriel.ti@gmail.com</a>
+              <a href="mailto:gabriel@example.com">gabriel@example.com</a>
             </div>
           </div>
           <div class="info-item">
@@ -917,6 +1179,20 @@
               <h4>Localização</h4>
               <p>São Luís, MA - Brasil</p>
             </div>
+          </div>
+          <div class="social-links" style="margin-top: 2.5rem;">
+            <a href="https://github.com/codedgabriel" class="social-link" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/codedgabriel" class="social-link" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/codedgabriel" class="social-link" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com/codedgabriel" class="social-link" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
         </div>
         <div class="contact-form fade-in" style="transition-delay: 0.2s;">
@@ -945,21 +1221,29 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="social-links">
-        <a href="https://instagram.com/codegabriel" class="social-link" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://github.com/docecaos" class="social-link" target="_blank">
+      <a href="#" class="footer-logo">codedgabriel</a>
+      <div class="footer-links">
+        <a href="#home">Início</a>
+        <a href="#about">Sobre</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#portfolio">Projetos</a>
+        <a href="#contact">Contato</a>
+      </div>
+      <div class="footer-social-links">
+        <a href="https://github.com/codedgabriel" class="footer-social-link" target="_blank" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com/in/codegabriel" class="social-link" target="_blank">
+        <a href="https://linkedin.com/in/codedgabriel" class="footer-social-link" target="_blank" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://wa.me/5598985641889" class="social-link" target="_blank">
-          <i class="fab fa-whatsapp"></i>
+        <a href="https://twitter.com/codedgabriel" class="footer-social-link" target="_blank" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://instagram.com/codedgabriel" class="footer-social-link" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
-      <p class="copyright">© 2025 CodeGabriel. Todos os direitos reservados.</p>
+      <p class="copyright">© <span id="currentYear"></span> codedgabriel. Todos os direitos reservados.</p>
     </div>
   </footer>
 
@@ -974,12 +1258,14 @@
       menuOverlay.classList.toggle('active');
       mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') ? 
         '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
     });
 
     menuOverlay.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
       menuOverlay.classList.remove('active');
       mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      document.body.style.overflow = 'auto';
     });
 
     // Close mobile menu when clicking on a link
@@ -988,6 +1274,7 @@
         mobileMenu.classList.remove('active');
         menuOverlay.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = 'auto';
       });
     });
 
@@ -1061,6 +1348,87 @@
           }, 2000);
         }, 1500);
       });
+    }
+
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Animate stats counters
+    const animateCounters = () => {
+      const projectsCount = document.getElementById('projectsCount');
+      const clientsCount = document.getElementById('clientsCount');
+      const experienceCount = document.getElementById('experienceCount');
+      const contributionsCount = document.getElementById('contributionsCount');
+      
+      const targetValues = {
+        projects: 50,
+        clients: 30,
+        experience: 5,
+        contributions: 100
+      };
+      
+      const duration = 2000; // 2 seconds
+      const interval = 50; // update every 50ms
+      const steps = duration / interval;
+      
+      const increment = (target, element) => {
+        let current = 0;
+        const step = target / steps;
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            clearInterval(timer);
+            element.textContent = target + '+';
+          } else {
+            element.textContent = Math.floor(current) + '+';
+          }
+        }, interval);
+      };
+      
+      if (projectsCount.getBoundingClientRect().top < window.innerHeight - 100) {
+        increment(targetValues.projects, projectsCount);
+        setTimeout(() => increment(targetValues.clients, clientsCount), 200);
+        setTimeout(() => increment(targetValues.experience, experienceCount), 400);
+        setTimeout(() => increment(targetValues.contributions, contributionsCount), 600);
+        
+        // Remove event listener after animation
+        window.removeEventListener('scroll', animateCounters);
+      }
+    };
+    
+    // Check stats counters on scroll
+    window.addEventListener('scroll', animateCounters);
+    // Also check on load in case they're already visible
+    animateCounters();
+
+    // Particles effect
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 30;
+
+    if (particlesContainer) {
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 2px and 6px
+        const size = Math.random() * 4 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Random opacity
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        
+        // Random animation
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        particlesContainer.appendChild(particle);
+      }
     }
 
     // WhatsApp click event
