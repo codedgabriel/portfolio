@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeGabriel | Sites Profissionais que Impulsionam Seu Negócio</title>
-    <link rel="shortcut icon" href="assets/coding.png" type="image/x-icon">
+    <title>CodeGabriel | Site Profissional por Apenas R$300</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -41,11 +40,12 @@
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         /* Scrollbar personalizada */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 6px;
         }
 
         ::-webkit-scrollbar-track {
@@ -54,7 +54,7 @@
 
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
@@ -65,16 +65,16 @@
             width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1rem;
         }
 
         section {
-            padding: 6rem 0;
+            padding: 4rem 0;
             position: relative;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 1rem;
             background: linear-gradient(90deg, var(--primary), #7dd3fc);
@@ -86,10 +86,11 @@
 
         .section-subtitle {
             color: var(--gray);
-            font-size: 1.125rem;
+            font-size: 1rem;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
+            max-width: 100%;
+            margin: 0 auto 2rem;
+            padding: 0 1rem;
         }
 
         .btn {
@@ -107,6 +108,7 @@
             outline: none;
             gap: 0.5rem;
             white-space: nowrap;
+            font-size: 1rem;
         }
 
         .btn-primary {
@@ -133,8 +135,10 @@
         }
 
         .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1.125rem;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 280px;
         }
 
         /* Header */
@@ -144,9 +148,9 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(2, 6, 23, 0.8);
+            background-color: rgba(2, 6, 23, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
         }
@@ -160,13 +164,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 1rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: white;
             text-decoration: none;
@@ -174,12 +179,25 @@
 
         .logo-icon {
             color: var(--primary);
-            font-size: 1.75rem;
+            font-size: 1.5rem;
         }
 
         .nav-links {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: var(--darker);
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 999;
+        }
+
+        .nav-links.active {
             display: flex;
-            gap: 2rem;
         }
 
         .nav-link {
@@ -188,6 +206,8 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
         }
 
         .nav-link:hover,
@@ -198,7 +218,7 @@
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -0.5rem;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -212,12 +232,13 @@
         }
 
         .mobile-menu-btn {
-            display: none;
+            display: block;
             background: none;
             border: none;
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -227,19 +248,21 @@
             align-items: center;
             background: linear-gradient(135deg, rgba(2, 6, 23, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%),
                 url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            padding: 8rem 0 6rem;
+            padding: 6rem 0 4rem;
+            text-align: center;
         }
 
         .hero-content {
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             text-align: center;
             position: relative;
             z-index: 1;
+            padding: 0 1rem;
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 2.2rem;
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -250,35 +273,39 @@
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--gray);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
+            margin-bottom: 2rem;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 0.5rem;
         }
 
         .hero-buttons {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
         }
 
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 4rem;
+            gap: 1.5rem;
+            margin-top: 3rem;
             flex-wrap: wrap;
         }
 
         .stat-item {
             text-align: center;
+            min-width: 100px;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary);
             margin-bottom: 0.25rem;
@@ -286,7 +313,7 @@
 
         .stat-label {
             color: var(--gray);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -310,16 +337,16 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .feature-card {
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 0.75rem;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: var(--transition);
             backdrop-filter: blur(10px);
             position: relative;
@@ -344,28 +371,28 @@
         }
 
         .feature-icon {
-            width: 3.5rem;
-            height: 3.5rem;
+            width: 3rem;
+            height: 3rem;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(37, 99, 235, 0.1);
             border-radius: 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         .feature-title {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: white;
         }
 
         .feature-description {
             color: var(--gray);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         /* Showcase Section */
@@ -375,26 +402,24 @@
 
         .showcase-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 4rem;
+            gap: 2rem;
         }
 
         .showcase-content {
-            flex: 1;
+            width: 100%;
+            order: 2;
         }
 
         .showcase-image {
-            flex: 1;
+            width: 100%;
+            max-width: 500px;
             position: relative;
             border-radius: 0.75rem;
             overflow: hidden;
             box-shadow: var(--shadow-xl);
-            transform: perspective(1000px) rotateY(-10deg);
-            transition: var(--transition);
-        }
-
-        .showcase-image:hover {
-            transform: perspective(1000px) rotateY(-5deg);
+            order: 1;
         }
 
         .showcase-image img {
@@ -417,21 +442,24 @@
         }
 
         .showcase-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: white;
+            text-align: center;
         }
 
         .showcase-description {
             color: var(--gray);
-            margin-bottom: 2rem;
-            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-align: center;
         }
 
         .showcase-features {
             list-style: none;
             margin-bottom: 2rem;
+            padding: 0 1rem;
         }
 
         .showcase-feature {
@@ -440,6 +468,7 @@
             gap: 0.75rem;
             margin-bottom: 0.75rem;
             color: var(--gray);
+            font-size: 0.95rem;
         }
 
         .showcase-feature i {
@@ -452,7 +481,7 @@
         }
 
         .testimonial-slider {
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             position: relative;
         }
@@ -461,7 +490,7 @@
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 0.75rem;
-            padding: 2.5rem;
+            padding: 1.5rem;
             text-align: center;
             display: none;
             backdrop-filter: blur(10px);
@@ -486,18 +515,18 @@
         }
 
         .testimonial-avatar {
-            width: 5rem;
-            height: 5rem;
+            width: 4rem;
+            height: 4rem;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
             border: 3px solid var(--primary);
         }
 
         .testimonial-text {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-style: italic;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--light);
             position: relative;
         }
@@ -505,43 +534,44 @@
         .testimonial-text::before,
         .testimonial-text::after {
             content: '"';
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--primary);
             opacity: 0.5;
             position: absolute;
         }
 
         .testimonial-text::before {
-            top: -1rem;
-            left: -1.5rem;
+            top: -0.8rem;
+            left: -1rem;
         }
 
         .testimonial-text::after {
-            bottom: -2rem;
-            right: -1.5rem;
+            bottom: -1.5rem;
+            right: -1rem;
         }
 
         .testimonial-author {
             font-weight: 700;
             margin-bottom: 0.25rem;
             color: white;
+            font-size: 1.1rem;
         }
 
         .testimonial-role {
             color: var(--gray);
-            font-size: 0.875rem;
+            font-size: 0.8rem;
         }
 
         .slider-controls {
             display: flex;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             gap: 0.5rem;
         }
 
         .slider-dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             background: var(--dark-gray);
             border-radius: 50%;
             cursor: pointer;
@@ -556,6 +586,7 @@
         /* Pricing */
         .pricing {
             position: relative;
+            padding: 4rem 0;
         }
 
         .pricing::before {
@@ -571,30 +602,28 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .pricing-card {
             background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--primary);
             border-radius: 0.75rem;
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             transition: var(--transition);
             position: relative;
             backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
         }
 
         .pricing-card:hover {
             transform: translateY(-0.5rem);
-            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.2);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.4);
         }
 
         .popular-badge {
@@ -615,13 +644,15 @@
             font-weight: 700;
             margin-bottom: 1rem;
             color: white;
+            text-align: center;
         }
 
         .pricing-price {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             color: white;
+            text-align: center;
         }
 
         .pricing-price span {
@@ -632,7 +663,8 @@
 
         .pricing-features {
             list-style: none;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
         }
 
         .pricing-feature {
@@ -641,15 +673,12 @@
             gap: 0.5rem;
             margin-bottom: 0.75rem;
             color: var(--gray);
+            font-size: 0.95rem;
         }
 
         .pricing-feature i {
             color: var(--primary);
             font-size: 0.75rem;
-        }
-
-        .pricing-feature.disabled {
-            opacity: 0.5;
         }
 
         /* FAQ */
@@ -658,7 +687,7 @@
         }
 
         .faq-container {
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -679,11 +708,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem;
+            padding: 1rem;
             font-weight: 600;
             color: white;
             cursor: pointer;
             transition: var(--transition);
+            font-size: 1rem;
         }
 
         .faq-question:hover {
@@ -695,11 +725,12 @@
         }
 
         .faq-answer {
-            padding: 0 1.25rem;
+            padding: 0 1rem;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
             color: var(--gray);
+            font-size: 0.95rem;
         }
 
         .faq-item.active .faq-question i {
@@ -707,7 +738,7 @@
         }
 
         .faq-item.active .faq-answer {
-            padding-bottom: 1.25rem;
+            padding-bottom: 1rem;
             max-height: 500px;
         }
 
@@ -717,6 +748,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 4rem 1rem;
         }
 
         .cta::before {
@@ -736,31 +768,37 @@
         }
 
         .cta-title {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: white;
+            line-height: 1.3;
         }
 
         .cta-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 0.5rem;
         }
 
         .cta-buttons {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
         }
 
         .cta-btn-primary {
             background-color: white;
             color: var(--primary);
+            width: 100%;
+            max-width: 280px;
         }
 
         .cta-btn-primary:hover {
@@ -772,6 +810,8 @@
             background-color: transparent;
             color: white;
             border: 2px solid white;
+            width: 100%;
+            max-width: 280px;
         }
 
         .cta-btn-secondary:hover {
@@ -781,15 +821,19 @@
         /* Footer */
         footer {
             background: var(--darker);
-            padding: 6rem 0 2rem;
+            padding: 4rem 0 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col {
+            padding: 0 1rem;
         }
 
         .footer-logo {
@@ -800,17 +844,22 @@
             font-weight: 800;
             color: white;
             margin-bottom: 1.5rem;
+            justify-content: center;
         }
 
         .footer-description {
             color: var(--gray);
             margin-bottom: 1.5rem;
             line-height: 1.7;
+            text-align: center;
+            font-size: 0.95rem;
         }
 
         .footer-social {
             display: flex;
             gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
         }
 
         .social-link {
@@ -865,6 +914,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.95rem;
         }
 
         .footer-link a:hover {
@@ -882,7 +932,7 @@
             padding-top: 2rem;
             text-align: center;
             color: var(--gray);
-            font-size: 0.875rem;
+            font-size: 0.8rem;
         }
 
         /* Animations */
@@ -945,85 +995,102 @@
         }
 
         /* Responsividade */
-        @media (max-width: 1024px) {
-            section {
-                padding: 4rem 0;
-            }
-
-            .showcase-container {
-                flex-direction: column;
-            }
-
-            .showcase-image {
-                order: -1;
-                max-width: 600px;
-                margin: 0 auto;
-                transform: none;
-            }
-
-            .showcase-image:hover {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 6rem 0 4rem;
-            }
-
+        @media (min-width: 480px) {
             .hero-title {
                 font-size: 2.5rem;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+
+            .hero-buttons, .cta-buttons {
+                flex-direction: row;
+                flex-wrap: wrap;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
             }
 
-            .hero-subtitle {
-                font-size: 1rem;
+            section {
+                padding: 5rem 0;
             }
 
             .section-title {
-                font-size: 1.75rem;
+                font-size: 2.5rem;
             }
 
-            .testimonial {
-                padding: 1.5rem;
+            .section-subtitle {
+                font-size: 1.125rem;
+                max-width: 700px;
             }
 
-            .cta-title {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 3rem;
             }
 
-            .cta-buttons {
-                flex-direction: column;
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .nav-links {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                background: transparent;
+                padding: 0;
+                border-bottom: none;
+                width: auto;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .showcase-container {
+                flex-direction: row;
                 align-items: center;
+                gap: 4rem;
+            }
+
+            .showcase-content {
+                order: 1;
+                text-align: left;
+            }
+
+            .showcase-image {
+                order: 2;
+                max-width: none;
+                transform: perspective(1000px) rotateY(-10deg);
+            }
+
+            .showcase-image:hover {
+                transform: perspective(1000px) rotateY(-5deg);
+            }
+
+            .showcase-title, .showcase-description {
+                text-align: left;
+            }
+
+            .showcase-features {
+                padding: 0;
             }
         }
     </style>
@@ -1038,7 +1105,7 @@
                 <span>CodeGabriel</span>
             </a>
 
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links">
                 <a href="#features" class="nav-link">Recursos</a>
                 <a href="#showcase" class="nav-link">Portfólio</a>
                 <a href="#pricing" class="nav-link">Preços</a>
@@ -1055,16 +1122,15 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1 class="hero-title">Imagine sua ideia com esse alcance?</h1>
-            <p class="hero-subtitle">Criamos sites profissionais que convertem visitantes em clientes e impulsionam seu
-                negócio no mundo digital.</p>
+            <h1 class="hero-title">Site Profissional por Apenas R$300</h1>
+            <p class="hero-subtitle">Tenha um site exclusivo, responsivo e otimizado para vendas em até 7 dias. Transforme visitantes em clientes com um design feito sob medida para seu negócio.</p>
 
             <div class="hero-buttons">
                 <a href="#pricing" class="btn btn-primary btn-lg">
-                    <i class="fas fa-rocket"></i> Quero meu site agora
+                    <i class="fas fa-shopping-cart"></i> Quero meu site agora
                 </a>
-                <a href="#showcase" class="btn btn-secondary btn-lg">
-                    <i class="fas fa-eye"></i> Ver portfólio
+                <a href="#contact" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-question-circle"></i> Tire suas dúvidas
                 </a>
             </div>
 
@@ -1088,63 +1154,56 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Por que escolher a CodeGabriel?</h2>
-            <p class="section-subtitle">Oferecemos soluções completas e personalizadas para atender todas as
-                necessidades do seu negócio online.</p>
+            <h2 class="section-title">O que você recebe por R$300?</h2>
+            <p class="section-subtitle">Um site completo, profissional e pronto para impulsionar seu negócio.</p>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 class="feature-title">Performance Excepcional</h3>
-                    <p class="feature-description">Sites otimizados para carregamento ultrarrápido, garantindo melhor
-                        experiência do usuário e SEO.</p>
+                    <h3 class="feature-title">Design Exclusivo</h3>
+                    <p class="feature-description">Layout personalizado que reflete a identidade do seu negócio, criado especialmente para você.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="feature-title">Design Responsivo</h3>
-                    <p class="feature-description">Layouts que se adaptam perfeitamente a qualquer dispositivo, do
-                        desktop ao smartphone.</p>
+                    <h3 class="feature-title">Totalmente Responsivo</h3>
+                    <p class="feature-description">Seu site perfeito em qualquer dispositivo: celular, tablet e computador.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3 class="feature-title">Otimização SEO</h3>
-                    <p class="feature-description">Estratégias avançadas para melhorar seu posicionamento nos mecanismos
-                        de busca.</p>
+                    <h3 class="feature-title">Otimizado para Google</h3>
+                    <p class="feature-description">Desenvolvido com as melhores práticas de SEO para aparecer nas buscas.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Super Rápido</h3>
+                    <p class="feature-description">Performance otimizada para carregamento ultrarrápido e melhor experiência do usuário.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="feature-title">Segurança Avançada</h3>
-                    <p class="feature-description">Proteção contra ameaças digitais para manter seus dados e usuários
-                        seguros.</p>
+                    <h3 class="feature-title">Seguro</h3>
+                    <p class="feature-description">Proteção contra ameaças digitais para manter seus dados e visitantes seguros.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3 class="feature-title">Atualizações Constantes</h3>
-                    <p class="feature-description">Manutenção contínua para garantir que seu site sempre funcione
-                        perfeitamente.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3 class="feature-title">Design Exclusivo</h3>
-                    <p class="feature-description">Criamos identidades visuais únicas que refletem a essência do seu
-                        negócio.</p>
+                    <h3 class="feature-title">Pronto em 7 Dias</h3>
+                    <p class="feature-description">Entregamos seu site profissional em até uma semana após aprovação do design.</p>
                 </div>
             </div>
         </div>
@@ -1154,28 +1213,32 @@
     <section class="showcase" id="showcase">
         <div class="container showcase-container">
             <div class="showcase-content">
-                <h2 class="showcase-title">Transformamos Ideias em Realidade</h2>
-                <p class="showcase-description">Cada projeto é cuidadosamente planejado e executado para superar
-                    expectativas e entregar resultados excepcionais.</p>
+                <h2 class="showcase-title">Veja o que podemos criar para você</h2>
+                <p class="showcase-description">Sites profissionais que convertem visitantes em clientes e impulsionam seu negócio no mundo digital.</p>
 
                 <ul class="showcase-features">
                     <li class="showcase-feature">
-                        <i class="fas fa-check-circle"></i> Design moderno e intuitivo
+                        <i class="fas fa-check-circle"></i> Design moderno e exclusivo
                     </li>
                     <li class="showcase-feature">
-                        <i class="fas fa-check-circle"></i> Tecnologias mais recentes
+                        <i class="fas fa-check-circle"></i> Textos otimizados para conversão
                     </li>
                     <li class="showcase-feature">
-                        <i class="fas fa-check-circle"></i> Integração com redes sociais
+                        <i class="fas fa-check-circle"></i> Botões de ação estratégicos
                     </li>
                     <li class="showcase-feature">
-                        <i class="fas fa-check-circle"></i> Análise de desempenho
+                        <i class="fas fa-check-circle"></i> Integração com WhatsApp e redes sociais
+                    </li>
+                    <li class="showcase-feature">
+                        <i class="fas fa-check-circle"></i> Garantia de satisfação
                     </li>
                 </ul>
 
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Fale sobre seu projeto
-                </a>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#pricing" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shopping-cart"></i> Quero meu site por R$300
+                    </a>
+                </div>
             </div>
 
             <div class="showcase-image floating">
@@ -1189,15 +1252,14 @@
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title">O que nossos clientes dizem</h2>
-            <p class="section-subtitle">A satisfação dos nossos clientes é nossa maior recompensa.</p>
+            <h2 class="section-title">Clientes Satisfeitos</h2>
+            <p class="section-subtitle">Veja o que dizem quem já contratou nossos serviços.</p>
 
             <div class="testimonial-slider">
                 <div class="testimonial active">
                     <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Clara"
                         class="testimonial-avatar">
-                    <p class="testimonial-text">Meu site captura perfeitamente a essência da minha marca e já gerou um
-                        aumento de 40% nas vendas no primeiro mês!</p>
+                    <p class="testimonial-text">Meu site captura perfeitamente a essência da minha marca e já gerou um aumento de 40% nas vendas no primeiro mês! Valeu cada centavo dos R$300 investidos.</p>
                     <h4 class="testimonial-author">Ana Clara</h4>
                     <p class="testimonial-role">Dona da Boutique Estilo Próprio</p>
                 </div>
@@ -1205,8 +1267,7 @@
                 <div class="testimonial">
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Eduardo"
                         class="testimonial-avatar">
-                    <p class="testimonial-text">Ele entendeu exatamente o que precisávamos e entregou um site que
-                        superou todas as nossas expectativas. O atendimento pós-venda é excelente!</p>
+                    <p class="testimonial-text">Por apenas R$300, consegui um site profissional que superou todas as minhas expectativas. O atendimento foi excelente e o resultado final perfeito!</p>
                     <h4 class="testimonial-author">Carlos Eduardo</h4>
                     <p class="testimonial-role">Proprietário do Restaurante Sabor & Arte</p>
                 </div>
@@ -1214,9 +1275,7 @@
                 <div class="testimonial">
                     <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Juliana Martins"
                         class="testimonial-avatar">
-                    <p class="testimonial-text">Finalmente tenho um portfólio online que realmente representa meu
-                        trabalho. O processo foi super fácil e o resultado final é simplesmente perfeito. Recomendo para
-                        qualquer profissional!</p>
+                    <p class="testimonial-text">Finalmente tenho um site profissional que realmente representa meu trabalho. Por R$300 foi um ótimo investimento que já se pagou com novos clientes.</p>
                     <h4 class="testimonial-author">Juliana Martins</h4>
                     <p class="testimonial-role">Fotógrafa Profissional</p>
                 </div>
@@ -1233,77 +1292,36 @@
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Escolha o tipo perfeito para o seu negócio.</p>
+            <h2 class="section-title">Site Profissional por R$300</h2>
+            <p class="section-subtitle">Tudo que você precisa para começar a vender online.</p>
 
             <div class="pricing-grid">
-
-                <!-- Plano Essencial -->
                 <div class="pricing-card">
-                    <h3 class="pricing-title">Essencial</h3>
-                    <div class="pricing-price">R$ 150 <span>/ até 2x</span></div>
+                    <div class="popular-badge">MAIS VENDIDO</div>
+                    <h3 class="pricing-title">Site Profissional</h3>
+                    <div class="pricing-price">R$ 300 <span>/ até 2x sem juros</span></div>
 
                     <ul class="pricing-features">
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Página simples e bonita</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Funciona em celular e computador</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Um botão de contato (WhatsApp ou link)
-                        </li>
-                        <li class="pricing-feature disabled"><i class="fas fa-times"></i> Design personalizado</li>
-                        <li class="pricing-feature disabled"><i class="fas fa-times"></i> Textos estratégicos</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Design exclusivo e moderno</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Textos otimizados para conversão</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Totalmente responsivo (celular e computador)</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Integração com WhatsApp e redes sociais</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Otimizado para mecanismos de busca</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Domínio e hospedagem por 1 ano*</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Suporte por 30 dias após entrega</li>
+                        <li class="pricing-feature"><i class="fas fa-check"></i> Pronto em até 7 dias úteis</li>
                     </ul>
 
-                    <a href="#contact" class="btn btn-secondary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Contratar
-                    </a>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="#contact" class="btn btn-primary btn-lg">
+                            <i class="fas fa-shopping-cart"></i> Quero meu site agora
+                        </a>
+                    </div>
                 </div>
-
-                <!-- Plano Profissional (Mais Popular) -->
-                <div class="pricing-card popular">
-                    <div class="popular-badge">MAIS POPULAR</div>
-                    <h3 class="pricing-title">Profissional</h3>
-                    <div class="pricing-price">R$ 300 <span>/ até 2x</span></div>
-
-                    <ul class="pricing-features">
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Visual exclusivo, feito pra você</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Textos que ajudam a vender</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Botão de ação + formulário ou link</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Otimizada para celular</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Preparada para aparecer no Google</li>
-                    </ul>
-
-                    <a href="#contact" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Contratar
-                    </a>
-                </div>
-
-                <!-- Plano Avançado -->
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Avançado</h3>
-                    <div class="pricing-price">R$ 500 <span>/ até 2x</span></div>
-
-                    <ul class="pricing-features">
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Visual exclusivo e moderno</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Textos feitos com técnicas de marketing
-                        </li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Integração com WhatsApp, e-mail ou
-                            sistema</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Otimização completa para Google</li>
-                        <li class="pricing-feature"><i class="fas fa-check"></i> Recursos extras sob medida</li>
-                    </ul>
-
-                    <a href="#contact" class="btn btn-secondary" style="width: 100%;">
-                        <i class="fas fa-shopping-cart"></i> Contratar
-                    </a>
-                </div>
-
             </div>
 
-
-
-
-            <p style="text-align: center; margin-top: 2rem; color: var(--gray);">
-                Precisa de algo personalizado? <a href="#contact"
-                    style="color: var(--primary); text-decoration: none;">Fale conosco</a> para um orçamento sob medida.
+            <p style="text-align: center; margin-top: 2rem; color: var(--gray); font-size: 0.9rem;">
+                *Domínio .com.br ou .com incluído. Hospedagem premium com SSL e e-mails profissionais.
             </p>
         </div>
     </section>
@@ -1311,70 +1329,65 @@
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title">Perguntas Frequentes</h2>
-            <p class="section-subtitle">Encontre respostas para as dúvidas mais comuns sobre nossos serviços.</p>
+            <h2 class="section-title">Dúvidas Frequentes</h2>
+            <p class="section-subtitle">Tire todas suas dúvidas sobre nosso serviço de site profissional por R$300.</p>
 
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Quanto tempo leva para desenvolver meu site?</span>
+                        <span>Quanto tempo leva para ter meu site pronto?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>O tempo de desenvolvimento varia de acordo com a complexidade do projeto. Sites básicos podem
-                            ficar prontos em 1-2 semanas, enquanto projetos mais complexos podem levar de 3 a 6 semanas.
-                            Após a aprovação do design, mantemos você informado sobre cada etapa do processo.</p>
+                        <p>Entregamos seu site profissional em até 7 dias úteis após a aprovação do design. O processo é rápido porque temos um método eficiente e especializado em criar sites de alta qualidade por esse valor acessível.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Posso atualizar meu site depois de pronto?</span>
+                        <span>O que está incluso nos R$300?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim! Oferecemos diferentes opções de manutenção. Você pode optar por atualizações pontuais
-                            (cobradas à parte), contratar nosso plano de manutenção mensal ou, se escolher um site com
-                            sistema de gerenciamento (CMS), poderá fazer atualizações simples você mesmo.</p>
+                        <p>Por R$300 você recebe: design exclusivo, desenvolvimento do site responsivo, textos otimizados, 1 ano de domínio (.com ou .com.br), 1 ano de hospedagem premium, integração com WhatsApp, e-mails profissionais e suporte por 30 dias após a entrega.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Vocês oferecem hospedagem e domínio?</span>
+                        <span>Posso pagar em parcelas?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim, todos os nossos pacotes incluem domínio e hospedagem premium por 1 ano. Após esse
-                            período, você pode renovar conosco ou transferir para outro provedor, se preferir. Nossos
-                            servidores são otimizados para performance e segurança.</p>
+                        <p>Sim! Oferecemos a opção de pagar em até 2x sem juros no cartão de crédito. Também aceitamos PIX (com 5% de desconto) ou boleto bancário.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Como funciona o processo de criação do site?</span>
+                        <span>Preciso ter conhecimento técnico?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Nosso processo é dividido em etapas: 1) Briefing e planejamento; 2) Criação do design; 3)
-                            Aprovação do cliente; 4) Desenvolvimento; 5) Revisões e ajustes; 6) Lançamento. Você será
-                            envolvido em cada etapa para garantir que o resultado final atenda todas as suas
-                            expectativas.</p>
+                        <p>Não! Nós cuidamos de tudo para você. Basta nos enviar o conteúdo (textos e imagens) e responder algumas perguntas sobre seu negócio. Nós fazemos o resto e entregamos seu site pronto para usar.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Vocês fazem sites para e-commerce?</span>
+                        <span>E se eu não gostar do resultado?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Sim, desenvolvemos lojas virtuais completas com catálogo de produtos, carrinho de compras,
-                            integração com gateways de pagamento e sistemas de frete. Entre em contato para discutir as
-                            melhores opções para o seu negócio.</p>
+                        <p>Oferecemos garantia de satisfação. Se após ver o design proposto você não gostar, devolvemos 100% do seu dinheiro. Nosso objetivo é que você fique 100% satisfeito com seu novo site profissional.</p>
                     </div>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#contact" class="btn btn-primary btn-lg">
+                    <i class="fas fa-question-circle"></i> Ainda tem dúvidas? Fale conosco
+                </a>
             </div>
         </div>
     </section>
@@ -1382,18 +1395,21 @@
     <!-- CTA Section -->
     <section class="cta" id="contact">
         <div class="container cta-container">
-            <h2 class="cta-title">Pronto para transformar sua ideia em realidade?</h2>
-            <p class="cta-subtitle">Entre em contato agora mesmo e vamos conversar sobre como podemos criar o site
-                perfeito para o seu negócio.</p>
+            <h2 class="cta-title">Pronto para ter seu site profissional por R$300?</h2>
+            <p class="cta-subtitle">Entre em contato agora mesmo e vamos começar a criar seu site hoje mesmo!</p>
 
             <div class="cta-buttons">
-                <a href="https://wa.me/SEUNUMERO" class="btn cta-btn-primary btn-lg">
+                <a href="https://wa.me/5598885641889" class="btn cta-btn-primary btn-lg">
                     <i class="fab fa-whatsapp"></i> Falar no WhatsApp
                 </a>
-                <a href="mailto:contato@codegabriel.com" class="btn cta-btn-secondary btn-lg">
+                <a href="mailto:codegabriel.ti@gmail.com" class="btn cta-btn-secondary btn-lg">
                     <i class="fas fa-envelope"></i> Enviar Email
                 </a>
             </div>
+            
+            <p style="text-align: center; margin-top: 2rem; color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                Atendimento rápido e personalizado. Respondemos em até 1 hora útil.
+            </p>
         </div>
     </section>
 
@@ -1406,8 +1422,7 @@
                         <i class="fas fa-code"></i>
                         <span>CodeGabriel</span>
                     </div>
-                    <p class="footer-description">Transformando ideias em experiências digitais incríveis desde 2024.
-                        Nosso objetivo é ajudar negócios a crescerem através de soluções web de alta qualidade.</p>
+                    <p class="footer-description">Criamos sites profissionais por R$300 que realmente vendem. Transforme seu negócio com uma presença online de qualidade.</p>
 
                     <div class="footer-social">
                         <a href="#" class="social-link">
@@ -1420,7 +1435,7 @@
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                         <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                 </div>
@@ -1435,7 +1450,7 @@
                         </li>
                         <li class="footer-link">
                             <a href="#features">
-                                <i class="fas fa-chevron-right"></i> Recursos
+                                <i class="fas fa-chevron-right"></i> O que você recebe
                             </a>
                         </li>
                         <li class="footer-link">
@@ -1445,43 +1460,12 @@
                         </li>
                         <li class="footer-link">
                             <a href="#pricing">
-                                <i class="fas fa-chevron-right"></i> Preços
+                                <i class="fas fa-chevron-right"></i> Site por R$300
                             </a>
                         </li>
                         <li class="footer-link">
                             <a href="#faq">
-                                <i class="fas fa-chevron-right"></i> FAQ
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h3 class="footer-title">Serviços</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i> Sites Institucionais
-                            </a>
-                        </li>
-                        <li class="footer-link">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i> Lojas Virtuais
-                            </a>
-                        </li>
-                        <li class="footer-link">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i> Blogs Profissionais
-                            </a>
-                        </li>
-                        <li class="footer-link">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i> Landing Pages
-                            </a>
-                        </li>
-                        <li class="footer-link">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i> Sistemas Web
+                                <i class="fas fa-chevron-right"></i> Dúvidas
                             </a>
                         </li>
                     </ul>
@@ -1497,7 +1481,7 @@
                         </li>
                         <li class="footer-link">
                             <a href="tel:+5598885641889">
-                                <i class="fas fa-phone-alt"></i> (11) 99999-9999
+                                <i class="fas fa-phone-alt"></i> (98) 8856-4189
                             </a>
                         </li>
                         <li class="footer-link">
@@ -1507,7 +1491,7 @@
                         </li>
                         <li class="footer-link">
                             <a href="#">
-                                <i class="fas fa-map-marker-alt"></i> São Paulo, Brasil
+                                <i class="fas fa-map-marker-alt"></i> São Luís, Brasil
                             </a>
                         </li>
                     </ul>
@@ -1524,11 +1508,11 @@
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = document.getElementById('nav-links');
 
         mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            mobileMenuBtn.innerHTML = navLinks.style.display === 'flex' ?
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ?
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
@@ -1536,7 +1520,7 @@
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    navLinks.style.display = 'none';
+                    navLinks.classList.remove('active');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
@@ -1676,35 +1660,14 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
 
-        // Tooltip for pricing features
-        document.querySelectorAll('.pricing-feature.disabled').forEach(feature => {
-            feature.addEventListener('mouseenter', () => {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'tooltip-text';
-                tooltip.textContent = 'Disponível em planos superiores';
-                feature.appendChild(tooltip);
-
-                setTimeout(() => {
-                    tooltip.style.opacity = '1';
-                }, 10);
-            });
-
-            feature.addEventListener('mouseleave', () => {
-                const tooltip = feature.querySelector('.tooltip-text');
-                if (tooltip) {
-                    tooltip.remove();
-                }
-            });
-        });
-
         // Form submission (example)
         document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
             button.addEventListener('click', (e) => {
                 if (button.getAttribute('href') === '#contact') {
                     e.preventDefault();
                     // In a real implementation, you would show a contact form modal
-                    alert('Ótima escolha! Redirecionando você para nosso formulário de contato...');
-                    // document.getElementById('contact-form-modal').style.display = 'block';
+                    alert('Ótima escolha! Redirecionando você para nosso WhatsApp...');
+                    window.location.href = 'https://wa.me/5598885641889';
                 }
             });
         });
