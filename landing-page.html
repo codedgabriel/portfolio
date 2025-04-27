@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Code Gabriel - Desenvolvimento Web & Marketing Digital</title>
+  <meta name="description" content="Desenvolvedor web especializado em criação de sites modernos, responsivos e estratégias de marketing digital para alavancar seu negócio.">
+  <meta name="keywords" content="desenvolvimento web, sites, marketing digital, portfolio, landing page">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="shortcut icon" href="assets/coding.png" type="image/x-icon">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #3b82f6;
+      --dark-bg: #0f0f0f;
+      --darker-bg: #0a0a0a;
+      --card-bg: #1c1c1c;
+      --text-light: #f0f0f0;
+      --text-muted: #aaaaaa;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, var(--dark-bg), #1a1a1a);
+      color: var(--text-light);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      padding: 3rem 1rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0, 191, 255, 0.1) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--secondary), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(0, 191, 255, 0.3);
+    }
+
+    header p.tagline {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .header-cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Marketing Section */
+    .marketing-top {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: rgba(22, 22, 22, 0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 2rem auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transform: translateY(0);
+      transition: var(--transition);
+    }
+
+    .marketing-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 191, 255, 0.2);
+    }
+
+    .marketing-top h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .marketing-top p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 4rem 1rem;
+      text-align: center;
+      background: rgba(10, 10, 10, 0.7);
+    }
+
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 150px;
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 191, 255, 0.05) 0%, transparent 100%);
+      z-index: -1;
+    }
+
+    .cta-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, var(--text-light), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      padding: 1rem 2.5rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .secondary-button {
+      background: transparent;
+      color: var(--text-light);
+      border: 2px solid var(--primary);
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 191, 255, 0.4);
+    }
+
+    .secondary-button:hover {
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .cta-button:active {
+      transform: translateY(1px);
+    }
+
+    /* Services Section */
+    .services {
+      padding: 5rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.9);
+      z-index: -1;
+    }
+
+    .services h3 {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .services h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      width: 100%;
+      max-width: 350px;
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .card:hover .icon {
+      transform: scale(1.1);
+      color: var(--secondary);
+    }
+
+    .card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 5rem 1rem;
+      text-align: center;
+      background: var(--darker-bg);
+    }
+
+    .portfolio h3 {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .portfolio h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 250px;
+      transition: var(--transition);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      padding: 1.5rem;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      transform: translateY(0);
+    }
+
+    .portfolio-overlay h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+
+    .testimonials h3 {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .testimonials h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+
+    .testimonial-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 2rem;
+      max-width: 350px;
+      text-align: left;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.05);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    .author-info h5 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .author-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Process Section */
+    .process {
+      padding: 5rem 1rem;
+      text-align: center;
+      background: var(--darker-bg);
+    }
+
+    .process h3 {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .process h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      z-index: 0;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 200px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin: 0 auto 1rem;
+    }
+
+    .step h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Section */
+    .faq {
+      padding: 5rem 1rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq h3 {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .faq h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 3px;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .faq-question {
+      padding: 1.5rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--secondary);
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '-';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 1rem;
+      text-align: center;
+      background: var(--darker-bg);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-column a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .footer-column a:hover {
+      color: var(--secondary);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      transition: var(--transition);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+      background: rgba(0, 191, 255, 0.1);
+    }
+
+    .copyright {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(0, 191, 255, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      header {
+        padding: 4rem 1rem 2rem;
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+      }
+
+      .marketing-top {
+        padding: 3.5rem 2rem;
+      }
+
+      .marketing-top h2 {
+        font-size: 2.2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2.8rem;
+      }
+
+      .services h3,
+      .portfolio h3,
+      .testimonials h3,
+      .process h3,
+      .faq h3 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      header h1 {
+        font-size: 4rem;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+  
+  <header>
+    <h1>Code Gabriel</h1>
+    <p class="tagline">Criando experiências digitais memoráveis</p>
+    <div class="header-cta">
+      <button class="cta-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i> Fale comigo agora
+      </button>
+      <button class="cta-button secondary-button" id="portfolioBtn">
+        <i class="fas fa-eye"></i> Ver Portfólio
+      </button>
+    </div>
+  </header>
+
+  <section class="marketing-top">
+    <h2><i class="fas fa-bolt"></i> Gostou da estratégia de marketing?</h2>
+    <p>Este site apareceu porque você escaneou nosso QR Code. Imagine o que podemos fazer para o seu negócio se destacar com um site personalizado e estratégias digitais eficientes que convertem visitantes em clientes.</p>
+  </section>
+
+  <section class="stats-section">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number" id="projectsCount">50+</div>
+        <div class="stat-label">Projetos Concluídos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="clientsCount">30+</div>
+        <div class="stat-label">Clientes Satisfeitos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="experienceCount">3+</div>
+        <div class="stat-label">Anos de Experiência</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Dedicação Total</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Transforme sua presença online</h2>
+    <p>Desenvolvo sites modernos, responsivos e otimizados que convertem visitantes em clientes e impulsionam seu negócio para o próximo nível.</p>
+    <button class="cta-button" id="whatsappBtn2">
+      <i class="fab fa-whatsapp"></i> Fale comigo no WhatsApp
+    </button>
+  </section>
+
+  <section class="services">
+    <h3>O que eu ofereço</h3>
+    <div class="service-cards">
+      <div class="card floating" style="animation-delay: 0.2s;">
+        <div class="icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h4>Sites Pessoais</h4>
+        <p>Portfólios, blogs e páginas de apresentação com design único e totalmente responsivo para todos os dispositivos, destacando sua marca pessoal.</p>
+      </div>
+      <div class="card floating" style="animation-delay: 0.4s;">
+        <div class="icon">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <h4>Sites Comerciais</h4>
+        <p>Landing pages, vitrines digitais e sites institucionais profissionais que aumentam sua credibilidade, vendas e presença online.</p>
+      </div>
+      <div class="card floating" style="animation-delay: 0.6s;">
+        <div class="icon">
+          <i class="fas fa-magic"></i>
+        </div>
+        <h4>Interativos & Criativos</h4>
+        <p>Experiências web impressionantes com animações, microinterações e designs que contam sua história de forma única e memorável.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio">
+    <h3>Meu Portfólio</h3>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="assets/arqueriaimperial.png" alt="Projeto 1">
+        <div class="portfolio-overlay">
+          <h4>Site Institucional</h4>
+          <p>Desenvolvimento completo para empresa de tiro com arco.</p>
+          <button class="cta-button secondary-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+            Ver Detalhes
+          </button>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="assets/acadly.png" alt="Projeto 2">
+        <div class="portfolio-overlay">
+          <h4>Acadly</h4>
+          <p>Plataforma completa para acadêmicos</p>
+          <button class="cta-button secondary-button" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+            Ver Detalhes
+          </button>
+        </div>
+      </div>
+      
+
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h3>O que dizem sobre meu trabalho</h3>
+    <div class="testimonial-container">
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>O Gabriel transformou completamente nossa presença online. O site que ele criou superou todas as nossas expectativas e já gerou inúmeros novos clientes para nosso negócio.</p>
+        </div>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1" class="author-avatar">
+          <div class="author-info">
+            <h5>Carlos Silva</h5>
+            <p>CEO, TechSolutions</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>Trabalhar com o Gabriel foi uma experiência incrível. Ele entendeu exatamente o que precisávamos e entregou um site que é ao mesmo tempo bonito e funcional.</p>
+        </div>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 2" class="author-avatar">
+          <div class="author-info">
+            <h5>Ana Oliveira</h5>
+            <p>Diretora de Marketing</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>Profissionalismo e qualidade excepcionais. O Gabriel não só criou um site incrível para meu portfólio como também me orientou em estratégias para atrair mais clientes.</p>
+        </div>
+        <div class="testimonial-author">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Cliente 3" class="author-avatar">
+          <div class="author-info">
+            <h5>Roberto Santos</h5>
+            <p>Fotógrafo Profissional</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <h3>Como funciona o processo</h3>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Consulta Inicial</h4>
+        <p>Conversamos sobre suas necessidades, objetivos e visão para o projeto.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Planejamento</h4>
+        <p>Crio um plano detalhado com cronograma, orçamento e estratégia.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Desenvolvimento</h4>
+        <p>Transformo o conceito em realidade com design e funcionalidades.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Entrega</h4>
+        <p>Revisão final e lançamento do projeto, com suporte contínuo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <h3>Perguntas Frequentes</h3>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">Quanto custa um site?</div>
+        <div class="faq-answer">
+          <p>O valor varia de acordo com o tipo de site, complexidade e funcionalidades necessárias. Sites simples como esse começam a partir de R$ 300, enquanto sites comerciais mais complexos podem variar entre R$ 500 e R$ 1.200. Entre em contato para um orçamento personalizado.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Quanto tempo leva para desenvolver um site?</div>
+        <div class="faq-answer">
+          <p>O prazo depende da complexidade do projeto. Sites simples podem ficar prontos no mesmo dia, enquanto projetos mais complexos podem levar de 2 a 8 semanas. Após nossa conversa inicial, posso fornecer um cronograma mais preciso para seu projeto específico.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Você faz manutenção após o lançamento?</div>
+        <div class="faq-answer">
+          <p>Sim, ofereço pacotes de manutenção mensal que incluem atualizações, backups, segurança e pequenos ajustes conforme necessário. Também forneço treinamento para que você possa gerenciar partes do conteúdo por conta própria, se preferir.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Meu site será otimizado para SEO?</div>
+        <div class="faq-answer">
+          <p>Absolutamente! Todos os sites que desenvolvo seguem as melhores práticas de SEO desde o início, incluindo estrutura semântica, velocidade de carregamento, mobile-first design e otimização de conteúdo. Também posso oferecer consultoria de SEO adicional se necessário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" style="background: rgba(10, 10, 10, 0.9);">
+    <h2>Pronto para levar seu negócio para o próximo nível?</h2>
+    <p>Vamos conversar sobre como posso ajudar a transformar sua visão em realidade digital.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <button class="cta-button" id="whatsappBtn3">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </button>
+      <button class="cta-button secondary-button" id="emailBtn">
+        <i class="fas fa-envelope"></i> E-mail
+      </button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>Code Gabriel</h4>
+        <p>Criando experiências digitais memoráveis e resultados excepcionais para negócios e profissionais.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#process">Processo</a></li>
+          <li><a href="#testimonials">Depoimentos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#">Sites Pessoais</a></li>
+          <li><a href="#">Sites Comerciais</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Otimização SEO</a></li>
+          <li><a href="#">Manutenção</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/98985641889"><i class="fab fa-whatsapp"></i> (98) 98564-1889</a></li>
+          <li><a href="mailto:codegabriel.ti@gmail.com"><i class="fas fa-envelope"></i> codegabriel.ti@gmail.com</a></li>
+          <li><a href="https://instagram.com/codegabriel"><i class="fab fa-instagram"></i> @codegabriel</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="social-links">
+      <a href="https://instagram.com/codegabriel" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/98985641889" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:codegabriel.ti@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/codedgabriel" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/codegabriel" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="copyright">
+      <p>© 2025 - Desenvolvido por Code Gabriel | Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Botões do WhatsApp
+    document.getElementById("whatsappBtn").addEventListener("click", function() {
+      window.open("https://wa.me/98985641889", "_blank");
+    });
+    
+    document.getElementById("whatsappBtn2").addEventListener("click", function() {
+      window.open("https://wa.me/98985641889", "_blank");
+    });
+
+    document.getElementById("whatsappBtn3").addEventListener("click", function() {
+      window.open("https://wa.me/98985641889", "_blank");
+    });
+
+    // Botão de e-mail
+    document.getElementById("emailBtn").addEventListener("click", function() {
+      window.location.href = "mailto:codegabriel.ti@gmail.com";
+    });
+
+    // Botão de portfólio
+    document.getElementById("portfolioBtn").addEventListener("click", function() {
+      document.querySelector('.portfolio').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Efeito de digitação no header
+    const tagline = document.querySelector('.tagline');
+    if (tagline) {
+      const text = tagline.textContent;
+      tagline.textContent = '';
+      
+      let i = 0;
+      const typingEffect = setInterval(() => {
+        if (i < text.length) {
+          tagline.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(typingEffect);
+        }
+      }, 50);
+    }
+
+    // Animação ao rolar
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('.card, .portfolio-item, .testimonial-card, .step');
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    // Inicializa os elementos com opacidade 0 para animação
+    window.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.card, .portfolio-item, .testimonial-card, .step');
+      elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      // Cria partículas
+      createParticles();
+      
+      // Configura FAQ
+      setupFAQ();
+    });
+
+    // FAQ functionality
+    function setupFAQ() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    // Dispara uma vez no carregamento
+    animateOnScroll();
+
+    // Efeito de partículas
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Tamanho aleatório entre 2px e 5px
+        const size = Math.random() * 3 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Posição aleatória
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Opacidade aleatória
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        
+        // Animação
+        const duration = Math.random() * 20 + 10;
+        particle.style.animation = `float ${duration}s infinite ease-in-out`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Contador animado
+    function animateCounter(element, target, duration = 2000) {
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          clearInterval(timer);
+          current = target;
+        }
+        element.textContent = Math.floor(current) + (element.id === 'experienceCount' ? '+' : '');
+      }, 16);
+    }
+
+    // Observador de interseção para os contadores
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(document.getElementById('projectsCount'), 50);
+          animateCounter(document.getElementById('clientsCount'), 30);
+          animateCounter(document.getElementById('experienceCount'), 3);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('.stats-section'));
+  </script>
+</body>
+</html>
