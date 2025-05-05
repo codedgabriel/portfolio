@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Code Gabriel - Desenvolvimento Web & Marketing Digital</title>
-  <meta name="description" content="Desenvolvedor web especializado em criação de sites modernos, responsivos e estratégias de marketing digital para alavancar seu negócio.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Gabriel - Desenvolvimento Web</title>
+  <meta name="description"
+    content="Desenvolvedor web especializado em criação de sites modernos, responsivos e estratégias de marketing digital para alavancar seu negócio.">
   <meta name="keywords" content="desenvolvimento web, sites, marketing digital, portfolio, landing page">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -63,7 +65,7 @@
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 2rem;
       font-weight: 700;
       background: linear-gradient(to right, var(--secondary), var(--primary));
       -webkit-background-clip: text;
@@ -547,14 +549,7 @@
     }
 
     .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 40px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      z-index: 0;
+     
     }
 
     .step {
@@ -764,8 +759,15 @@
 
     /* Animations */
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .floating {
@@ -825,32 +827,35 @@
       header h1 {
         font-size: 4rem;
       }
-      
+
       .portfolio-grid {
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       }
     }
   </style>
 </head>
+
 <body>
   <div class="particles" id="particles"></div>
-  
+
   <header>
-    <h1>Code Gabriel</h1>
-    <p class="tagline">Criando experiências digitais memoráveis</p>
+    <h1>Quantos clientes você perdeu por não ter um bom site?</h1>
+    <p class="tagline">Invista em um site que trabalha por você 24 horas por dia.</p>
+
     <div class="header-cta">
       <button class="cta-button" id="whatsappBtn">
         <i class="fab fa-whatsapp"></i> Fale comigo agora
       </button>
       <button class="cta-button secondary-button" id="portfolioBtn">
-        <i class="fas fa-eye"></i> Ver Portfólio
+        <i class="fas fa-eye"></i> <a href="https://codegabriel.com.br" style="text-decoration: none; color: white;">Ver Portfólio</a>
       </button>
     </div>
   </header>
 
   <section class="marketing-top">
     <h2><i class="fas fa-bolt"></i> Gostou da estratégia de marketing?</h2>
-    <p>Este site apareceu porque você escaneou nosso QR Code. Imagine o que podemos fazer para o seu negócio se destacar com um site personalizado e estratégias digitais eficientes que convertem visitantes em clientes.</p>
+    <p>Este site apareceu porque você escaneou nosso QR Code. Imagine o que podemos fazer para o seu negócio se destacar
+      com um site personalizado e estratégias digitais eficientes que convertem visitantes em clientes.</p>
   </section>
 
   <section class="stats-section">
@@ -876,7 +881,8 @@
 
   <section class="cta-section">
     <h2>Transforme sua presença online</h2>
-    <p>Desenvolvo sites modernos, responsivos e otimizados que convertem visitantes em clientes e impulsionam seu negócio para o próximo nível.</p>
+    <p>Desenvolvo sites modernos, responsivos e otimizados que convertem visitantes em clientes e impulsionam seu
+      negócio para o próximo nível.</p>
     <button class="cta-button" id="whatsappBtn2">
       <i class="fab fa-whatsapp"></i> Fale comigo no WhatsApp
     </button>
@@ -890,26 +896,29 @@
           <i class="fas fa-user-tie"></i>
         </div>
         <h4>Sites Pessoais</h4>
-        <p>Portfólios, blogs e páginas de apresentação com design único e totalmente responsivo para todos os dispositivos, destacando sua marca pessoal.</p>
+        <p>Portfólios, blogs e páginas de apresentação com design único e totalmente responsivo para todos os
+          dispositivos, destacando sua marca pessoal.</p>
       </div>
       <div class="card floating" style="animation-delay: 0.4s;">
         <div class="icon">
           <i class="fas fa-briefcase"></i>
         </div>
         <h4>Sites Comerciais</h4>
-        <p>Landing pages, vitrines digitais e sites institucionais profissionais que aumentam sua credibilidade, vendas e presença online.</p>
+        <p>Landing pages, vitrines digitais e sites institucionais profissionais que aumentam sua credibilidade, vendas
+          e presença online.</p>
       </div>
       <div class="card floating" style="animation-delay: 0.6s;">
         <div class="icon">
           <i class="fas fa-magic"></i>
         </div>
         <h4>Interativos & Criativos</h4>
-        <p>Experiências web impressionantes com animações, microinterações e designs que contam sua história de forma única e memorável.</p>
+        <p>Experiências web impressionantes com animações, microinterações e designs que contam sua história de forma
+          única e memorável.</p>
       </div>
     </div>
   </section>
 
-  <section class="portfolio">
+  <section class="portfolio" style="display: none;">
     <h3>Meu Portfólio</h3>
     <div class="portfolio-grid">
       <div class="portfolio-item">
@@ -932,17 +941,18 @@
           </button>
         </div>
       </div>
-      
+
 
     </div>
   </section>
 
-  <section class="testimonials">
+  <section class="testimonials" style="display: none;">
     <h3>O que dizem sobre meu trabalho</h3>
     <div class="testimonial-container">
       <div class="testimonial-card">
         <div class="testimonial-content">
-          <p>O Gabriel transformou completamente nossa presença online. O site que ele criou superou todas as nossas expectativas e já gerou inúmeros novos clientes para nosso negócio.</p>
+          <p>O Gabriel transformou completamente nossa presença online. O site que ele criou superou todas as nossas
+            expectativas e já gerou inúmeros novos clientes para nosso negócio.</p>
         </div>
         <div class="testimonial-author">
           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1" class="author-avatar">
@@ -954,7 +964,8 @@
       </div>
       <div class="testimonial-card">
         <div class="testimonial-content">
-          <p>Trabalhar com o Gabriel foi uma experiência incrível. Ele entendeu exatamente o que precisávamos e entregou um site que é ao mesmo tempo bonito e funcional.</p>
+          <p>Trabalhar com o Gabriel foi uma experiência incrível. Ele entendeu exatamente o que precisávamos e entregou
+            um site que é ao mesmo tempo bonito e funcional.</p>
         </div>
         <div class="testimonial-author">
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 2" class="author-avatar">
@@ -966,7 +977,8 @@
       </div>
       <div class="testimonial-card">
         <div class="testimonial-content">
-          <p>Profissionalismo e qualidade excepcionais. O Gabriel não só criou um site incrível para meu portfólio como também me orientou em estratégias para atrair mais clientes.</p>
+          <p>Profissionalismo e qualidade excepcionais. O Gabriel não só criou um site incrível para meu portfólio como
+            também me orientou em estratégias para atrair mais clientes.</p>
         </div>
         <div class="testimonial-author">
           <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Cliente 3" class="author-avatar">
@@ -1011,25 +1023,32 @@
       <div class="faq-item">
         <div class="faq-question">Quanto custa um site?</div>
         <div class="faq-answer">
-          <p>O valor varia de acordo com o tipo de site, complexidade e funcionalidades necessárias. Sites simples como esse começam a partir de R$ 300, enquanto sites comerciais mais complexos podem variar entre R$ 500 e R$ 1.200. Entre em contato para um orçamento personalizado.</p>
+          <p>O valor varia de acordo com o tipo de site, complexidade e funcionalidades necessárias. Sites simples como
+            esse começam a partir de R$ 200, enquanto sites comerciais mais complexos podem variar entre R$ 500 e R$
+            1.200. Entre em contato para um orçamento personalizado.</p>
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Quanto tempo leva para desenvolver um site?</div>
         <div class="faq-answer">
-          <p>O prazo depende da complexidade do projeto. Sites simples podem ficar prontos no mesmo dia, enquanto projetos mais complexos podem levar de 2 a 8 semanas. Após nossa conversa inicial, posso fornecer um cronograma mais preciso para seu projeto específico.</p>
+          <p>O prazo depende da complexidade do projeto. Sites simples podem ficar prontos no mesmo dia, enquanto
+            projetos mais complexos podem levar de 2 a 8 semanas. Após nossa conversa inicial, posso fornecer um
+            cronograma mais preciso para seu projeto específico.</p>
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Você faz manutenção após o lançamento?</div>
         <div class="faq-answer">
-          <p>Sim, ofereço pacotes de manutenção mensal que incluem atualizações, backups, segurança e pequenos ajustes conforme necessário. Também forneço treinamento para que você possa gerenciar partes do conteúdo por conta própria, se preferir.</p>
+          <p>Sim, ofereço pacotes de manutenção mensal que incluem atualizações, backups, segurança e pequenos ajustes
+            conforme necessário.</p>
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question">Meu site será otimizado para SEO?</div>
         <div class="faq-answer">
-          <p>Absolutamente! Todos os sites que desenvolvo seguem as melhores práticas de SEO desde o início, incluindo estrutura semântica, velocidade de carregamento, mobile-first design e otimização de conteúdo. Também posso oferecer consultoria de SEO adicional se necessário.</p>
+          <p>Absolutamente! Todos os sites que desenvolvo seguem as melhores práticas de SEO desde o início, incluindo
+            estrutura semântica, velocidade de carregamento, mobile-first design e otimização de conteúdo. Também posso
+            oferecer consultoria de SEO adicional se necessário.</p>
         </div>
       </div>
     </div>
@@ -1037,7 +1056,7 @@
 
   <section class="cta-section" style="background: rgba(10, 10, 10, 0.9);">
     <h2>Pronto para levar seu negócio para o próximo nível?</h2>
-    <p>Vamos conversar sobre como posso ajudar a transformar sua visão em realidade digital.</p>
+    <p>Vamos conversar sobre como posso ajudar a transformar sua ideia em realidade.</p>
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
       <button class="cta-button" id="whatsappBtn3">
         <i class="fab fa-whatsapp"></i> WhatsApp
@@ -1078,8 +1097,9 @@
         <h4>Contato</h4>
         <ul>
           <li><a href="https://wa.me/98985641889"><i class="fab fa-whatsapp"></i> (98) 98564-1889</a></li>
-          <li><a href="mailto:codegabriel.ti@gmail.com"><i class="fas fa-envelope"></i> codegabriel.ti@gmail.com</a></li>
-          <li><a href="https://instagram.com/codegabriel"><i class="fab fa-instagram"></i> @codegabriel</a></li>
+          <li><a href="mailto:codegabriel.ti@gmail.com"><i class="fas fa-envelope"></i> codegabriel.ti@gmail.com</a>
+          </li>
+          <li><a href="https://instagram.com/codegabriel__"><i class="fab fa-instagram"></i> @codegabriel__</a></li>
         </ul>
       </div>
     </div>
@@ -1097,25 +1117,25 @@
 
   <script>
     // Botões do WhatsApp
-    document.getElementById("whatsappBtn").addEventListener("click", function() {
-      window.open("https://wa.me/98985641889", "_blank");
-    });
-    
-    document.getElementById("whatsappBtn2").addEventListener("click", function() {
+    document.getElementById("whatsappBtn").addEventListener("click", function () {
       window.open("https://wa.me/98985641889", "_blank");
     });
 
-    document.getElementById("whatsappBtn3").addEventListener("click", function() {
+    document.getElementById("whatsappBtn2").addEventListener("click", function () {
+      window.open("https://wa.me/98985641889", "_blank");
+    });
+
+    document.getElementById("whatsappBtn3").addEventListener("click", function () {
       window.open("https://wa.me/98985641889", "_blank");
     });
 
     // Botão de e-mail
-    document.getElementById("emailBtn").addEventListener("click", function() {
+    document.getElementById("emailBtn").addEventListener("click", function () {
       window.location.href = "mailto:codegabriel.ti@gmail.com";
     });
 
     // Botão de portfólio
-    document.getElementById("portfolioBtn").addEventListener("click", function() {
+    document.getElementById("portfolioBtn").addEventListener("click", function () {
       document.querySelector('.portfolio').scrollIntoView({ behavior: 'smooth' });
     });
 
@@ -1124,7 +1144,7 @@
     if (tagline) {
       const text = tagline.textContent;
       tagline.textContent = '';
-      
+
       let i = 0;
       const typingEffect = setInterval(() => {
         if (i < text.length) {
@@ -1142,7 +1162,7 @@
       elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.3;
-        
+
         if (elementPosition < screenPosition) {
           element.style.opacity = '1';
           element.style.transform = 'translateY(0)';
@@ -1158,10 +1178,10 @@
         element.style.transform = 'translateY(20px)';
         element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       });
-      
+
       // Cria partículas
       createParticles();
-      
+
       // Configura FAQ
       setupFAQ();
     });
@@ -1185,28 +1205,28 @@
     function createParticles() {
       const particlesContainer = document.getElementById('particles');
       const particleCount = 50;
-      
+
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
-        
+
         // Tamanho aleatório entre 2px e 5px
         const size = Math.random() * 3 + 2;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
+
         // Posição aleatória
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-        
+
         // Opacidade aleatória
         particle.style.opacity = Math.random() * 0.5 + 0.1;
-        
+
         // Animação
         const duration = Math.random() * 20 + 10;
         particle.style.animation = `float ${duration}s infinite ease-in-out`;
         particle.style.animationDelay = `${Math.random() * 5}s`;
-        
+
         particlesContainer.appendChild(particle);
       }
     }
@@ -1241,4 +1261,5 @@
     observer.observe(document.querySelector('.stats-section'));
   </script>
 </body>
+
 </html>
